@@ -1,0 +1,57 @@
+\chapter{Relativistic quantum mechanics}
+
+In this chapter (TODO)
+
+\section{Canonical quantization}
+
+\paragraph{} Canonical transformation is a process of transition from a classical theory to
+the quantum one, i.e. procedure for quantizing the theory. The term \textit{canonical} comes
+from (TODO).
+
+\begin{definition}
+    \label{df:poisson}
+    Given two functions $f(\vec{q}, \vec{p}, t)$ and $g(\vec{q}, \vec{p}, t)$, the binary operation
+    $\{f, g\}$ is called the \textbf{Poisson bracket} of these functions and takes the form
+
+    \begin{equation}
+        \{f, g\} = \sum_{i=1}^{N}\left(\partialder{f}{q_{i}} \partialder{g}{p_{i}} - \partialder{f}{p_{i}} \partialder{g}{q_{i}}\right)
+    \end{equation}
+\end{definition}
+
+\begin{theorem}
+    \label{th:poisson_cononical_coordinates}
+    The Poisson brackets of canonical coordinates $q_{i}$ and $p_{i}$ are
+
+    \begin{equation}
+        \begin{gathered}
+        \{q_{i}, q_{j}\} = 0 \\
+        \{p_{i}, p_{j}\} = 0 \\
+        \{q_{i}, p_{j}\} = \delta_{ij}
+        \end{gathered}
+    \end{equation}
+\end{theorem}
+
+\begin{proof}
+    The proof of \ref{th:poisson_cononical_coordinates} can be easily done from the definition \ref{df:poisson}. 
+    The first two equations are manifestly zero because $\partialder{q_{i}}{p_{j}} = \partialder{p_{i}}{q_{j}} = 0$
+    and the last can one be proved as follows.
+
+    \begin{equation}
+        \begin{split}
+            \{q_{i}, p_{j}\} = \sum_{k=1}^{N}\left(\partialder{q_{i}}{q_{k}} \partialder{p_{j}}{p_{k}} - \partialder{q_{i}}{p_{k}} \partialder{p_{j}}{q_{k}}\right) 
+            = \sum_{k=1}^{N} \partialder{q_{i}}{q_{k}} \partialder{p_{j}}{p_{k}} = 
+            \begin{cases}
+                1  & \quad \text{if } i = j = k \\
+                0  & \quad \text{otherwise}
+            \end{cases} \\
+            \implies \{q_{i}, p_{j}\} = \delta_{ij}
+        \end{split}
+    \end{equation}
+\end{proof}
+
+
+    
+\section{Klein-Gordon equation}
+
+\section{Dirac equation}
+
