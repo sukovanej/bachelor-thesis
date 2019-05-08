@@ -1,11 +1,77 @@
 \chapter{Failures of the Relativistic Quantum Mechanics}
 
-In this chapter we will discuss 
+In this chapter we will discuss the problems of relativistic quantum mechanics. We will start
+with the problem of probability density within the Klein-Gordon equation.
 
-\section{Probability current}
+\section{Probability density}
 
-In non-relativistic case we can find the continuity equation by
+\paragraph{} In the non-relativistic case we can find the continuity equation by taking the complex conjugate
+of the Schrodinger's equation.
 
-\section{Energy solutions}
+\begin{equation*}
+    \begin{gathered}
+        i \hbar \partialder{}{t} \psi = \hat{H} \psi \\
+        - i \hbar \partialder{}{t} \psi^{*} = \big(\hat{H} \psi \big)^{*}
+    \end{gathered}
+\end{equation*}
+
+Then we mutiply the first equation by $\psi$ and the second one by $\psi^{*}$.
+
+\begin{equation*}
+    \begin{gathered}
+        i \hbar \psi^{*} \partialder{}{t} \psi = \psi^{*} \hat{H} \psi \\
+        i \hbar \psi \partialder{}{t} \psi^{*} = \psi \big(\hat{H} \psi \big)^{*}
+    \end{gathered}
+\end{equation*}
+
+If we substract these two equations from each other and use the formula for derivative $(a \cdot b)' = a' \cdot b + a \cdot b'$
+we wil get a form from which it will be easy to identify the continuity equation $\partialder{\rho}{t} + div \vec{j} = 0$.
+
+\begin{equation*}
+    i \hbar \partialder{\left|\psi\right|^{2}}{t}  = \psi^{*} \hat{H} \psi - \psi \big(\hat{H} \psi \big)^{*}
+\end{equation*}
+
+We assume the potential $V$ in $\hat{H} = \frac{\hat{p}^{2}}{2m} + V$ to be real-valued thus the right-hand side
+will simplify to
+
+\begin{equation*}
+    \psi^{*} \frac{\hbar^{2}}{2m} \nabla^{2} \psi - \psi \frac{\hbar^{2}}{2m} \nabla^{2} \psi^{*} 
+    = \frac{\hbar^{2}}{2m} \bigg( \psi^{*} \nabla^{2} \psi - \psi \nabla^{2} \psi^{*} \bigg)
+\end{equation*}
+
+and the desired form is
+
+\begin{equation*}
+    \partialder{\left|\psi\right|^{2}}{t} + div \bigg[ \frac{\hbar}{2mi} \bigg( \psi \nabla \psi^{*} - \psi^{*} \nabla \psi \bigg) \bigg] = 0
+\end{equation*}
+
+Now we will do the same for the Klein-Gordon equation \ref{eq:klein_gordon}. Let's do the same procedure here and
+find the complex conjugate, multiply both equations by $\psi$ and $\psi^{*}$ and then substract them. After that 
+let's focus on the term which contains the time derivative a thus will represent the \textit{probability density}.
+
+\begin{equation*}
+    \partialder{\rho}{t} \sim \frac{1}{2i} \bigg[ \psi^{*} \partialdernd{}{t} \psi - \psi \partialdernd{}{t} \psi^{*} \bigg]
+\end{equation*}
+
+Now we can find what $\rho$ is proportial to. 
+
+\begin{equation}
+    \rho \sim \frac{1}{2i} \bigg[ \psi^{*} \partialder{}{t} \psi - \psi \partialder{}{t} \psi^{*} \bigg]
+\end{equation}
+
+Let's divide the wave function $\psi$ into the real and imaginary part.
+
+\begin{equation*}
+    \begin{gathered}
+        \psi = i \psi_{1} + \psi_{2} \\
+        \rho \sim \bigg[ \psi_{2} \partialder{}{t} \psi_{1} - \psi_{1} \partialder{}{t} \psi_{2} \bigg]
+    \end{gathered}
+\end{equation*}
+
+Now it is easy to see the problem. In the non-relativistic case the probability density was simply $|\psi|^{2}$ which is
+non-negative for any $\psi: \mathbb{R} \to \mathbb{C}$. In the case of Klein-Gordon equation, we can see the probability 
+density is zero whenever the wave function is either exclusively real or imaginary. Moreover, since both 
+$\partialder{\psi_{1}}{t}$ and $\partialder{\psi_{2}}{t}$ are arbitrary, the value can be negative. This is in contradiction
+with the intepretation of $\rho$ as the \textit{probability density of measuring the system within a given state $\psi$}.
 
 \section{Causality}

@@ -115,13 +115,15 @@ $\mathcal{O}(\vec{p}^2) = - \hbar^{2} \Delta$.
     \end{gathered}
 \end{equation*}
 
-Let's rewrite the equation in a form so we can see it is \textit{lorentz invariant}. We use the fact that \textit{4-gradient}
-transforms the same way as any other 4-vector and than express the Klein-Gordon equation using 4-gradient dot products.
+After a little rearranging and setting $\frac{m^{2} c^{2}}{\hbar^{2}} = \mu^{2}$, we will finaly get the famous form \ref{eq:klein_gordon}.
 
 \begin{equation}
-    \bigg(\frac{1}{c^{2}} \partialdernd{}{t} - \Delta + \frac{m^{2} c^{2}}{\hbar^{2}}\bigg) \psi = 0
+    \label{eq:klein_gordon}
+    \bigg(\frac{1}{c^{2}} \partialdernd{}{t} - \Delta + \mu^{2} \bigg) \psi = 0
 \end{equation}
 
+Let's rewrite the equation in a form so we can see it is \textit{lorentz invariant}. We use the fact that \textit{4-gradient}
+transforms the same way as any other 4-vector and than express the Klein-Gordon equation using 4-gradient dot products.
 Using the metric $\eta^{\mu \nu} = diag(1, -1, -1, -1)$ and the \textit{4-gradient} $\partial_{\mu} = (\partialder{}{t}, \partialder{}{x}, \partialder{}{y}, \partialder{}{z})$ 
 it is possible to write the term $\frac{1}{c^{2}} \partialdernd{}{t} - \Delta$ as follows.
 
@@ -129,4 +131,17 @@ it is possible to write the term $\frac{1}{c^{2}} \partialdernd{}{t} - \Delta$ a
      \frac{1}{c^{2}} \partialdernd{}{t} - \partialdernd{}{x} - \partialdernd{}{y} - \partialdernd{}{z} = \eta^{\mu \nu} \partial_{\mu} \partial_{\nu} = \partial_{\mu} \partial^{\nu}
 \end{equation*}
 
+\begin{equation}
+    \bigg(\partial_{\mu} \partial^{\nu} + \mu^{2} \bigg) \psi = 0
+\end{equation}
+
 \section{Dirac equation}
+
+\paragraph{} One important fact about the Klein-Gordon equation is that it is second-order in time. Thus we need
+one more initial condition compared to the Schrodinger Equation. Dirac tried to find an equation that is first order
+in both space and time by finding the \textit{square root} of the Klein-Gordon equation. Let's start with the equation 
+\ref{eq:klein_gordon}.
+
+\begin{equation*}
+    \bigg(\frac{1}{c^{2}} \partialdernd{}{t} - \Delta + \mu^{2} \bigg) \psi = 0
+\end{equation*}
