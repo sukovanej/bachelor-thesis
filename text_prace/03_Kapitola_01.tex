@@ -4,7 +4,7 @@ In this chapter (TODO)
 
 \section{Canonical quantization}
 
-\paragraph{} Canonical transformation is a process of transition from a classical theory to
+\paragraph{} Canonical quantization is a process of transition from a classical theory to
 the quantum one, i.e. procedure for quantizing the theory. The term \textit{canonical} comes
 from (TODO).
 
@@ -49,9 +49,84 @@ from (TODO).
     \end{equation}
 \end{proof}
 
+\paragraph{} Dirac has formulated a technique for generating quantum operators from
+classical functions. The famous statement goes as follows.
 
-    
+\begin{equation}
+    \{A, B\} \to \frac{1}{i \hbar}[\hat{A}, \hat{B}]
+\end{equation}
+
+For the next discussion let's define $\mathcal{O}$ map which takes a function from the configuration space
+and maps it to the Hilbert space.
+
+\begin{definition}
+    \label{df:o_map}
+
+    Let $\mathcal{Q}$ be a configuration space and $H$ a Hilbert space. $End(V)$ is an \textit{endomorphism} of space $V$, i.e. 
+    a set of linear operators $\{L: V \to V \ | \  L \ linear\}$.
+
+    \begin{equation}
+        \begin{gathered}
+            \mathcal{O}: Q \to End(H) \\
+            \mathcal{O}(\{f, g\}) = \frac{1}{i \hbar}[\hat{A}, \hat{B}]
+        \end{gathered}
+    \end{equation}
+
+    Where $\hat{A}$ is the operator corresponding the the classical value $f$ and $B$ corresponds to $g$.
+\end{definition}
+
+Now we will use the fact that $[\hat{q}_{i}, \hat{p}_{j}] = i \hbar \delta_{ij}$ to show that $\mathcal{O}(q_{i}) = \hat{q}_{i}$. Firstly, we will
+rewrite $q$ using the Poisson bracket. The obvious choice is $q_{i} = \{\frac{q_{i}^{2}}{2}, p_{i}\}$.  
+And from the definition \ref{df:o_map} we see that $\mathcal{O}(\{\frac{q_{i}^{2}}{2}, p_{i}\}) = \frac{1}{i \hbar}[\frac{\hat{q}_{i}^{2}}{2}, \hat{p}_{i}]$.
+Using the identity for commutation relation $[AB, C] = [A, B]C + B[A, C]$\footnote{Proof by directly using the definition of 
+the commutator: $[AB, C] = ABC - CAB = ABC - ACB + ACB - CAB = A [B, C] + [A, C] B$} the commutator on the right-hand side can
+be written as follows.
+
+\begin{equation*}
+    \mathcal{O}(x_{i}) = \frac{1}{i \hbar}\bigg[\frac{\hat{x}_{i}^{2}}{2}, \hat{p}_{i}\bigg] = 
+    \frac{1}{2 i \hbar} \big(\hat{x}_{i} [\hat{x}_{i}, \hat{p}_{i}] + [\hat{x}_{i}, \hat{p}_{i}] \hat{x}_{i}\big) =
+    \frac{1}{2 i \hbar} \big(\hat{x}_{i} i \hbar + i \hbar \hat{x}_{i}\big) = \hat{x}_{i}
+\end{equation*}
+
+The proof of $\mathcal{O}(p) = \hat{p}$ is very similar.
+
+\begin{equation*}
+    \mathcal{O}(p_{i}) = \frac{1}{i \hbar}\bigg[\hat{x}_{i}, \frac{\hat{p}_{i}^{2}}{2}\bigg] = 
+    \frac{1}{2 i \hbar} \big([\hat{x}_{i}, \hat{p}_{i}] \hat{p}_{i} + \hat{p}_{i} [\hat{x}_{i}, \hat{p}_{i}]\big) =
+    \frac{1}{2 i \hbar} \big(i \hbar \hat{p}_{i} + \hat{p}_{i} i \hbar \big) = \hat{p}_{i}
+\end{equation*}
+
+In the \textit{x-representation} the explicit form of $\hat{x}$ and $\hat{p}$ is $\hat{x} = x$ and
+$\hat{p_{x}} = - i \hbar \partialder{}{x}$.
+
+TODO: study $\mathcal{O}(\{f(\vec{q}, \vec{p})\})$ and $\mathcal{O}(\{f + g, h\})$. How to get $\mathcal{O}(E)$?
+
 \section{Klein-Gordon equation}
 
-\section{Dirac equation}
+\paragraph{} \textit{Klein-Gordon equation} is relativistic quantum mechanical equation named after Oskar Klein and Walter Gordon and
+it describes relativistic spinless particles. It can be found using quantization of the relativistic energy equation. We need to apply the
+$\mathcal{O}$ map on each side while taking into account that $\mathcal{O}(E^2) = - \hbar^{2} \partialdernd{}{t}$ and 
+$\mathcal{O}(\vec{p}^2) = - \hbar^{2} \Delta$.
 
+\begin{equation*}
+    \begin{gathered}
+        E^{2} = \vec{p}^{2} c^{2} + m^{2} c^{4} \\
+        - \hbar^{2} \partialdernd{}{t} \psi = - \hbar^{2} c^{2} \Delta \psi + m^{2} c^{4} \psi
+    \end{gathered}
+\end{equation*}
+
+Let's rewrite the equation in a form so we can see it is \textit{lorentz invariant}. We use the fact that \textit{4-gradient}
+transforms the same way as any other 4-vector and than express the Klein-Gordon equation using 4-gradient dot products.
+
+\begin{equation}
+    \bigg(\frac{1}{c^{2}} \partialdernd{}{t} - \Delta + \frac{m^{2} c^{2}}{\hbar^{2}}\bigg) \psi = 0
+\end{equation}
+
+Using the metric $\eta^{\mu \nu} = diag(1, -1, -1, -1)$ and the \textit{4-gradient} $\partial_{\mu} = (\partialder{}{t}, \partialder{}{x}, \partialder{}{y}, \partialder{}{z})$ 
+it is possible to write the term $\frac{1}{c^{2}} \partialdernd{}{t} - \Delta$ as follows.
+
+\begin{equation*}
+     \frac{1}{c^{2}} \partialdernd{}{t} - \partialdernd{}{x} - \partialdernd{}{y} - \partialdernd{}{z} = \eta^{\mu \nu} \partial_{\mu} \partial_{\nu} = \partial_{\mu} \partial^{\nu}
+\end{equation*}
+
+\section{Dirac equation}

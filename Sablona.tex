@@ -50,8 +50,8 @@
 % \usepackage{charter}
 % \usepackage{fourier}
 % \usepackage{mathpazo}
-% \usepackage{newcent}
- \usepackage{palatino}
+ \usepackage{newcent}
+% \usepackage{palatino}
 % \usepackage{utopia}
 % \usepackage{mathptmx}  %% volne dostupny font Adobe Times Roman
 %  \usepackage[mtbold,mtplusscr,mtpluscal]{mathtime} % komercni matematicky font, dostupne pouze na UMS
@@ -187,6 +187,7 @@ zdrojů, které jsou v práci citovány.}
 \newtheorem{theorem}{Theorem}
 
 \newcommand{\partialder}[2] {\frac{\partial #1}{\partial #2}}
+\newcommand{\partialdernd}[2] {\frac{\partial^{2} #1}{\partial #2^{2}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%% VYTVOR POMOCNY SOUBOR PRO REJSTRIK %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -312,13 +313,17 @@ zdrojů, které jsou v práci citovány.}
 \vloz{text_prace/04_Kapitola_02}
 \cleardoublepage
 
+\HlavickaKapitoly
+\vloz{text_prace/05_Kapitola_03}
+\cleardoublepage
+
 \HlavickaZaver
-\vloz{text_prace/05_Zaver}
+\vloz{text_prace/06_Zaver}
 \cleardoublepage
 
 \renewcommand{\bibname}{Bibliography}
 \HlavickaLiteratura
-\vloz{text_prace/07_Literatura}
+\vloz{text_prace/08_Literatura}
 \cleardoublepage
 
 \renewcommand{\indexname}{Index}
