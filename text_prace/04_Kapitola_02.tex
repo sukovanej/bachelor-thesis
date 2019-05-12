@@ -73,12 +73,153 @@ non-negative for any $\psi: \mathbb{R} \to \mathbb{C}$. In the case of Klein-Gor
 density is zero whenever the wave function is either exclusively real or imaginary. Moreover, since both 
 $\partialder{\psi_{1}}{t}$ and $\partialder{\psi_{2}}{t}$ are arbitrary, the value can be negative. This is in contradiction
 with the intepretation of $\rho$ as the \textit{probability density of measuring the system within a given state $\psi$}.
+To solve this problem, Dirac introduced his equation. Let's check the probability density using the procedure of deriving
+the continuity equation from the Dirac equation \cite{dirac_equation_history}. Let's start with the Dirac equation of the 
+form as follows.
+
+\begin{equation}
+    \label{eq:dirac_equation}
+    (i \hbar \gamma^{\mu} \partial_{\mu} - mc) \psi = 0
+\end{equation}
+
+For further discussion let's introduce some useful theorems.
+
+\begin{theorem}
+    \label{th:gamma_matrices}
+    Let $\gamma^{\mu}$'s be Dirac matrices \cite{gamma_matrices} defined by the properties (see \cite{dirac_matrices})
+
+    \begin{equation}
+        \label{eq:gamma_matrices_def_1}
+        \begin{gathered}
+            \big\{\gamma^{\mu}, \gamma^{\nu}\big\} = 2 \eta^{\mu \nu} I_{4}
+        \end{gathered}
+    \end{equation}
+
+    where $\eta^{\mu \nu} = diag\{+1, -1, -1, -1\}$, and
+
+    \begin{equation}
+        \label{eq:gamma_matrices_def_2}
+        \begin{gathered}
+            \big(\gamma^{\mu}\big)^{\dagger} = \gamma^{0} \gamma^{\mu} \gamma^{0}
+        \end{gathered}
+    \end{equation}
+
+    then following equations hold for $\mu \in \{0, 1, 2, 3\}$, $i \in \{1, 2, 3\}$.
+
+    \begin{equation}
+        \label{eq:gamma_matrices_1}
+        \gamma^{0} \gamma^{i} = - \gamma^{i} \gamma^{0}
+    \end{equation}
+
+    \begin{equation}
+        \label{eq:gamma_matrices_2}
+        \begin{gathered}
+            \big(\gamma^{0}\big)^{\dagger} = \gamma^{0} \\
+            \big(\gamma^{i}\big)^{\dagger} = - \gamma^{i}
+        \end{gathered}
+    \end{equation}
+
+\end{theorem}
+
+\begin{proof}
+    The proof of \ref{eq:gamma_matrices_1} is a direct application of the definition \ref{eq:gamma_matrices_def_1}.
+
+    \begin{equation*}
+        \begin{gathered}
+            \{\gamma^{0}, \gamma^{i}\} = \gamma^{0} \gamma^{i} + \gamma^{0} \gamma^{i} = 2 \eta^{0 i} I_{4} \\
+            \gamma^{0} \gamma^{i} + \gamma^{0} \gamma^{i} = 0 \\
+            \gamma^{0} \gamma^{i} = - \gamma^{0} \gamma^{i} 
+        \end{gathered}
+    \end{equation*}
+
+    To proof \ref{eq:gamma_matrices_2} we just need to know that $\gamma^{0} \gamma^{0} = I_{4}$ which can be shown to be true because we
+    constructed the matrices to be so or by checking the definition \ref{eq:gamma_matrices_def_1}: 
+    $\{\gamma^{0}, \gamma^{0}\} = 2 \gamma^{0} \gamma^{0} = 2 \eta^{00} I_{4}$. Then we use the defining property 
+    \ref{eq:gamma_matrices_def_2} and the equation \ref{eq:gamma_matrices_1}.
+
+    \begin{equation*}
+        \begin{gathered}
+            \big(\gamma^{0}\big)^{\dagger} = \gamma^{0} \gamma^{0} \gamma^{0} = \gamma^{0} I_{4} = \gamma^{0} \\
+            \big(\gamma^{i}\big)^{\dagger} = \gamma^{0} \gamma^{i} \gamma^{0} = - \gamma^{0} \gamma^{0} \gamma^{i} = - I_{4} \gamma^{i} = - \gamma^{i}
+        \end{gathered}
+    \end{equation*}
+
+\end{proof}
+
+We will use a similar trick we used within the Schrodinger equation or the Klein-Gordon equation. We
+take the Hermitian adjoint of the left-hand side of the Dirac equation \ref{eq:dirac_equation}.
+
+\begin{equation*}
+    \begin{gathered}
+        \big[i \hbar \gamma^{\mu} \partial_{\mu} \psi - mc \psi\big]^{\dagger} = \\
+        = \big[i \hbar \gamma^{0} \partial_{0} \psi + \gamma^{1} \partial_{1} \psi + \gamma^{2} \partial_{2} \psi + \gamma^{3} \partial_{3} \psi - mc \psi\big]^{\dagger} = \\
+        = - i \hbar \big[\big(\gamma^{0} \partial_{0} \psi\big)^{\dagger} + \big(\gamma^{1} \partial_{1} \psi\big)^{\dagger} + 
+            \big(\gamma^{2} \partial_{2} \psi\big)^{\dagger} + \big(\gamma^{3} \partial_{3} \psi \big)^{\dagger}\big] - mc \psi^{\dagger} = \\
+        = - i \hbar \big[ \partial_{0} \psi^{\dagger} (\gamma^{0})^{\dagger} + \partial_{1} \psi^{\dagger} (\gamma^{1})^{\dagger} + \partial_{2} \psi^{\dagger} (\gamma^{2})^{\dagger}
+            + \partial_{3} \psi^{\dagger} (\gamma^{3})^{\dagger} \big] - mc \psi^{\dagger}
+    \end{gathered}
+\end{equation*}
+
+By using the equation \ref{eq:gamma_matrices_2} we evaluate all the gamma matrices with a dagger.
+
+\begin{equation}
+    \label{eq:conjugate_dirac_equation}
+    - i \hbar \big[ \partial_{0} \psi^{\dagger} \gamma^{0} + \partial_{1} \psi^{\dagger} (- \gamma^{1}) + \partial_{2} \psi^{\dagger} (-\gamma^{2})
+        + \partial_{3} \psi^{\dagger} (-\gamma^{3}) \big] - mc \psi^{\dagger} = 0
+\end{equation}
+
+Now, the trick is to introduce $\overline{\psi} := \psi^{\dagger} \gamma^{0}$, multiply the equation \ref{eq:conjugate_dirac_equation} by 
+$\gamma^{0}$ from the right and then rewrite all the $\psi^{\dagger} \gamma^{0}$ terms with $\overline{\psi}$ using the equation \ref{eq:gamma_matrices_1}.
+
+\begin{equation*}
+    \begin{gathered}
+        - i \hbar \big[ \partial_{0} \psi^{\dagger} \gamma^{0} \gamma^{0} + \partial_{1} \psi^{\dagger} (- \gamma^{1} \gamma^{0}) + \partial_{2} \psi^{\dagger} (-\gamma^{2} \gamma^{0})
+            + \partial_{3} \psi^{\dagger} (-\gamma^{3} \gamma^{0}) \big] - mc \psi^{\dagger} \gamma^{0} = 0 \\
+        - i \hbar \big[ \partial_{0} \psi^{\dagger} \gamma^{0} \gamma^{0} + \partial_{1} \psi^{\dagger} (\gamma^{0} \gamma^{1}) + \partial_{2} \psi^{\dagger} (\gamma^{0} \gamma^{2})
+            + \partial_{3} \psi^{\dagger} (\gamma^{0} \gamma^{2}) \big] - mc \psi^{\dagger} \gamma^{0} = 0 \\
+        - i \hbar \big[ \partial_{0} \overline{\psi} \gamma^{0} + \partial_{1} \overline{\psi} \gamma^{1} + \partial_{2} \overline{\psi} \gamma^{2}
+            + \partial_{3} \overline{\psi} \gamma^{2} \big] - mc \overline{\psi} = 0 \\
+    \end{gathered}
+\end{equation*}
+
+And finally, we will multiply this equation by $\psi$ from the left.
+
+\begin{equation}
+    i \hbar \partial_{\mu} \overline{\psi} \gamma^{\mu} \psi + mc \overline{\psi} \psi = 0
+\end{equation}
+
+To get rid of the $mc \overline{\psi} \psi$ term, let's take the original equation \ref{eq:dirac_equation} and multiply it
+by $\overline{\psi}$ from the right. Then we will simply add these two equations
+
+\begin{equation*}
+    \begin{gathered}
+        i \hbar \partial_{\mu} \overline{\psi} \gamma^{\mu} \psi + mc \overline{\psi} \psi = 0 \, \land \,
+        i \hbar \overline{\psi} \gamma^{\mu} \partial_{\mu} \psi - mc \overline{\psi} \psi = 0 \implies \\
+        \partial_{\mu} \overline{\psi} \gamma^{\mu} \psi + \overline{\psi} \gamma^{\mu} \partial_{\mu} \psi = 0
+    \end{gathered}
+\end{equation*}
+
+\begin{equation}
+    \label{eq:dirac_continuity}
+    \partial_{\mu} (\overline{\psi} \gamma^{\mu} \psi) = 0
+\end{equation}
+
+From the continuity equation \ref{eq:dirac_continuity} we see that the probability density should be $\rho = \overline{\psi} \gamma^{0} \psi$.
+Which is
+
+\begin{equation*}
+    \rho = \overline{\psi} \gamma^{0} \psi = \psi^{\dagger} \gamma^{0} \gamma^{0} \psi = \psi^{\dagger} \psi
+\end{equation*}
+
+and thus always a positive quantity! TODO: discussion on the results.
+
+\section{Ground state}
 
 \section{Causality}
 
 Now we would like to investigate the problem of causality in the quantum mechanics. We're going to study the transition
 amplitude of a free particle to propagate from one space-time point to another one. We will assume the standard definition
-of the causility in physics.
+of the causility in physics. TODO: discussion on the causality definition.
 
 \begin{definition}
     \label{df:causality}
@@ -150,3 +291,82 @@ The hamiltonian for such a case is $\hat{H} = c\sqrt{\hat{p}^{2} + (mc)^{2}}$. T
         = \int dp \ e^{- \frac{i}{\hbar} c \sqrt{p^{2} + (mc)^{2}} t'} e^{\frac{i}{\hbar}p (x_{1} - x_{0})}
     \end{gathered}
 \end{equation*}
+
+One way to analyze this integral to cheat a little bit and evaluating it using a computer numerically. To do that let's split 
+the function inside of the integral into a real and an imaginary part.
+
+\begin{equation*}
+    \begin{gathered}
+        \int dp \ e^{- \frac{i}{\hbar} c \sqrt{p^{2} + (mc)^{2}} t'} e^{\frac{i}{\hbar}p (x_{1} - x_{0})} =  \\
+        = \begin{vmatrix}
+            k_{t'}(p) = - \frac{1}{\hbar} c \sqrt{p^{2} + (mc)^{2}} t' \\
+            l_{x_{1}}(p) = \frac{1}{\hbar}p (x_{1} - x_{0}) \\
+        \end{vmatrix} = \\
+        = \int dp \ \bigg[ \sin(k_{t'}(p)) \sin(l_{x_{1}}(p)) - \sin(k_{t'}(p)) \sin(l_{x_{1}}(p)) + \\ i\big(\sin(k_{t'}(p)) \cos(l_{x_{1}}(p)) + \cos(k_{t'}(p)) \sin(l_{x_{1}}(p))\big) \bigg]
+    \end{gathered}
+\end{equation*}
+
+Now, we can integrate the function numerically using the Python\footnote{The script uses \textit{scipy}, \textit{matplotlib} and \textit{numpy} packages. 
+The used interpretter was \textit{cpython}, version 2.7} program \ref{code:free_relativistic_particle_amplitude}  because we integrate the 
+real part and the imaginary part separatelly. Then we can plot the final probability using the simple formula $P = |z|^{2} = \sqrt{Im\{z\}^{2} + Re\{z\}^{2}}$.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{free_relativistic_particle.png}
+    \caption{Propagation amplitude for a free relativistic particle}
+    \label{fig:free_relativistic_particle_probability}
+\end{figure}
+
+\clearpage
+
+\begin{code}
+    \captionof{listing}{Numerical integration of the relativistic free particle propagation amplitude}
+    \label{code:free_relativistic_particle_amplitude}
+    \begin{minted}{Python}
+from numpy import sqrt, cos, sin, linspace
+import scipy.integrate as integrate
+import matplotlib.pyplot as plt
+
+hbar, c, m = 1, 1, 1
+TIME = 100
+
+def function(x, t):
+    def real(p):
+        k = - 1 / hbar * c * (sqrt(p ** 2 + (m * c)**2)) * t
+        l = 1 / hbar * p * x
+        return cos(k) * cos(l) - sin(k) * sin(l)
+
+    def imaginary(p):
+        k = - 1 / hbar * c * (sqrt(p ** 2 + (m * c)**2)) * t
+        l = 1 / hbar * p * x
+        return sin(k) * cos(l) + cos(k) * sin(l)
+
+    return real, imaginary
+
+x_list = linspace(0, 3 * TIME, 500)
+y_list = []
+
+for x in x_list:
+    real, imaginary = function(x, TIME)
+
+    r = integrate.quad(real, -c, c)
+    i = integrate.quad(imaginary, -c, c)
+    y_list.append(sqrt(r[0] ** 2 + i[0] ** 2) / 2)
+
+plt.xlabel("x-coordinate for $ct = {}$".format(TIME))
+plt.ylabel("propagation probability")
+plt.plot(x_list, y_list)
+plt.plot([TIME, TIME], [0, max(y_list) * 1.2])
+plt.gca().set_ylim([0, max(y_list) * 1.2])
+plt.show()
+    \end{minted}
+\end{code}
+
+\clearpage
+
+In the graph \ref{fig:free_relativistic_particle_probability} we also plotted the vertical line which marks the point from which 
+the event is not considered causal by our definition and the probability density should be zero there. Althought the value
+in the graph is reaching the zero very quickly it is very small but non-zero in the region outside of the lightcone (i.e. on the 
+right side of the vertical marking line). So we encouter the same problem as in the calculation with the non-relativistic
+particle. The difference is that now we deal with an unremovable problem. We used the relativistic energy and still the theory
+allowed the particle to travel faster then the speed of light with non-zero probability!

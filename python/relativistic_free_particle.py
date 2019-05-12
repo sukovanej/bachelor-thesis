@@ -28,7 +28,9 @@ for x in x_list:
     i = integrate.quad(imaginary, -c, c)
     y_list.append(sqrt(r[0] ** 2 + i[0] ** 2) / 2)
 
-plt.ylabel("")
+plt.xlabel("x-coordinate for $t = {}c$".format(TIME))
+plt.ylabel("propagation probability")
 plt.plot(x_list, y_list)
-plt.plot([TIME, TIME], [0, max(y_list) * 1.5])
-plt.show()
+plt.plot([TIME, TIME], [0, max(y_list) * 1.2])
+plt.gca().set_ylim([0, max(y_list) * 1.2])
+plt.savefig("free_relativistic_particle.png")
