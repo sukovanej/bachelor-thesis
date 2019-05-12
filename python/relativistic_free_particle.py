@@ -3,6 +3,7 @@ import scipy.integrate as integrate
 import matplotlib.pyplot as plt
 
 hbar, c, m = 1, 1, 1
+TIME = 100
 
 def function(x, t):
     def real(p):
@@ -17,11 +18,11 @@ def function(x, t):
 
     return real, imaginary
 
-x_list = linspace(0, 20, 500)
+x_list = linspace(0, 3 * TIME, 500)
 y_list = []
 
 for x in x_list:
-    real, imaginary = function(x, 1)
+    real, imaginary = function(x, TIME)
 
     r = integrate.quad(real, -c, c)
     i = integrate.quad(imaginary, -c, c)
@@ -29,4 +30,5 @@ for x in x_list:
 
 plt.ylabel("")
 plt.plot(x_list, y_list)
+plt.plot([TIME, TIME], [0, max(y_list) * 1.5])
 plt.show()
