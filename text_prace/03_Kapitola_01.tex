@@ -1,17 +1,26 @@
 \chapter{Relativistic quantum mechanics}
 
-In this chapter (TODO)
+In this chapter we will introduce the basics of the canonical quantization. We will start by introducing the
+Poisson brackets and it's basic properties. Then we will define a quantization map $\mathcal{O}$ which maps the
+classical dynamical variable into the operator within a Hilbert space. Using this process we will then
+formulate the Klein-Gordon equation, an equation for describing a spinless particle in the quantum mechanics.
+We will see that this equation is second order both in time and space which will result some obstacles. With the
+hope of solving this issue we will construct the Dirac equation which describes the $\frac{1}{2}$-spin particle.
 
 \section{Canonical quantization}
 
-\paragraph{} Canonical quantization is a process of transition from a classical theory to
-the quantum one, i.e. procedure for quantizing the theory. The term \textit{canonical} comes
-from (TODO).
+\paragraph{} Canonical quantization is a process of transition from a classical theory to the quantum one. If a 
+quantum problem has an analog in the classical mechanics we can use the process of quantization to find the formulation
+in the quantum mechanics using the analogous equations in the classical one. In the classical mechanics a state of the system
+is represented by coordinates in the \textit{phase space} $(\vec{q_{1}}, \dots, \vec{q_{n}}, \vec{p_{1}}, \dots, \vec{p_{n}}, t)$.
+In the quantum mechanics, the analog of $q_{i}$ and $p_{i}$ are operators $\hat{q}_{i}$ and $\hat{p}_{i}$ acting in the 
+\textit{Hilbert space}.
 
 \begin{definition}
     \label{df:poisson}
-    Given two functions $f(\vec{q}, \vec{p}, t)$ and $g(\vec{q}, \vec{p}, t)$, the binary operation
-    $\{f, g\}$ is called the \textbf{Poisson bracket} of these functions and takes the form
+    Given two dynamical variables in the phace space $\mathcal{Q}$, \newline $f(\vec{q_{1}}, \dots, \vec{q_{n}}, \vec{p_{1}}, \dots, \vec{p_{n}}, t) 
+    \in C^{\infty}(\mathcal{Q}, \mathcal{R})$ and $g(\vec{q_{1}}, \dots, \vec{q_{n}}, \vec{p_{1}}, \dots, \vec{p_{n}}, t) 
+    \in C^{\infty}(\mathcal{Q}, \mathcal{R})$, the binary operation $\{f, g\}$ is called the \textbf{Poisson bracket} of these functions and takes the form
 
     \begin{equation}
         \{f, g\} = \sum_{i=1}^{N}\left(\partialder{f}{q_{i}} \partialder{g}{p_{i}} - \partialder{f}{p_{i}} \partialder{g}{q_{i}}\right)
@@ -34,7 +43,7 @@ from (TODO).
 \begin{proof}
     The proof of \ref{th:poisson_cononical_coordinates} can be easily done from the definition \ref{df:poisson}. 
     The first two equations are manifestly zero because $\partialder{q_{i}}{p_{j}} = \partialder{p_{i}}{q_{j}} = 0$
-    and the last can one be proved as follows.
+    and the last one can be proved as follows.
 
     \begin{equation}
         \begin{split}
@@ -49,35 +58,45 @@ from (TODO).
     \end{equation}
 \end{proof}
 
-\paragraph{} Dirac has formulated a technique for generating quantum operators from
-classical functions. The famous statement goes as follows.
+\paragraph{} Paul Dirac has formulated a technique for generating operators in $H$ from dynamical variables in $C^{\infty}(\mathcal{Q}, \mathcal{R})$. 
+The famous statement goes as follows.
 
 \begin{equation}
+    \label{eq:dirac_quantization}
     \{A, B\} \to \frac{1}{i \hbar}[\hat{A}, \hat{B}]
 \end{equation}
 
-For the next discussion let's define $\mathcal{O}$ map which takes a function from the configuration space
-and maps it to the Hilbert space.
+That means that if we have dynamical variables $A$ and $B$ we can get their quantum conterparts $\hat{A}$ and $\hat{B}$ and the
+defining property is the equation \ref{eq:dirac_quantization}. Let's define the properties of the $\mathcal{O}$ map (see \cite{floarin_jung})
+and then study some consequences.
 
 \begin{definition}
     \label{df:o_map}
 
-    Let $\mathcal{Q}$ be a configuration space and $H$ a Hilbert space. $End(V)$ is an \textit{endomorphism} of space $V$, i.e. 
-    a set of linear operators $\{L: V \to V \ | \  L \ linear\}$.
+    Let $\mathcal{Q}$ be a configuration space and $H$ the corresponding Hilbert space. The quantization map is
 
     \begin{equation}
-        \begin{gathered}
-            \mathcal{O}: Q \to End(H) \\
-            \mathcal{O}(\{f, g\}) = \frac{1}{i \hbar}[\hat{A}, \hat{B}]
-        \end{gathered}
+        \mathcal{O}: C^{\infty}(\mathcal{Q}, \mathcal{R}) \to Op(H) \\
     \end{equation}
+    
+    having the properties:
 
-    Where $\hat{A}$ is the operator corresponding the the classical value $f$ and $B$ corresponds to $g$.
+    \begin{enumerate}
+        \item $\mathcal{O}$ is linear,
+        \item $\mathcal{O}(f)$ is self-adjoint, $f \in C^{\infty}(\mathcal{Q}, \mathcal{R})$,
+        \item the relation between commutator and the Poisson bracket is
+            \begin{equation}
+                \label{eq:dirac_quantization_2}
+                \mathcal{O}(\{A, B\}) = \frac{1}{i \hbar} [\hat{A}, \hat{B}]
+            \end{equation}
+        \item a complete set $\{f_{1}, \dots, f_{n}\}$ is mapped to a complete set $\{\mathcal{O}(f_{1}), \dots, \mathcal{O}(f_{n})\}$,
+        \item an identity $Id_{\mathcal{Q}}$ is mapped to the indentity $Id_{H} = \mathcal{O}(Id_{\mathcal{Q}})$
+    \end{enumerate}
 \end{definition}
 
-Now we will use the fact that $[\hat{q}_{i}, \hat{p}_{j}] = i \hbar \delta_{ij}$ to show that $\mathcal{O}(q_{i}) = \hat{q}_{i}$. Firstly, we will
-rewrite $q$ using the Poisson bracket. The obvious choice is $q_{i} = \{\frac{q_{i}^{2}}{2}, p_{i}\}$.  
-And from the definition \ref{df:o_map} we see that $\mathcal{O}(\{\frac{q_{i}^{2}}{2}, p_{i}\}) = \frac{1}{i \hbar}[\frac{\hat{q}_{i}^{2}}{2}, \hat{p}_{i}]$.
+It is convinient to use $[\hat{q}_{i}, \hat{p}_{j}] = i \hbar \delta_{ij}$ and \ref{eq:dirac_quantization_2} to show
+that $\mathcal{O}(q_{i}) = \hat{q}_{i}$. Firstly, we will rewrite $q$ using the Poisson bracket. The obvious choice is $q_{i} = \{\frac{q_{i}^{2}}{2}, p_{i}\}$.
+And from the definition \ref{eq:dirac_quantization_2} we see that $\mathcal{O}(\{\frac{q_{i}^{2}}{2}, p_{i}\}) = \frac{1}{i \hbar}[\frac{\hat{q}_{i}^{2}}{2}, \hat{p}_{i}]$.
 Using the identity for commutation relation $[AB, C] = [A, B]C + B[A, C]$\footnote{Proof by directly using the definition of 
 the commutator: $[AB, C] = ABC - CAB = ABC - ACB + ACB - CAB = A [B, C] + [A, C] B$} the commutator on the right-hand side can
 be written as follows.
@@ -88,7 +107,7 @@ be written as follows.
     \frac{1}{2 i \hbar} \big(\hat{x}_{i} i \hbar + i \hbar \hat{x}_{i}\big) = \hat{x}_{i}
 \end{equation*}
 
-The proof of $\mathcal{O}(p) = \hat{p}$ is very similar.
+ $\mathcal{O}(p) = \hat{p}$ is very similar.
 
 \begin{equation*}
     \mathcal{O}(p_{i}) = \frac{1}{i \hbar}\bigg[\hat{x}_{i}, \frac{\hat{p}_{i}^{2}}{2}\bigg] = 
@@ -96,10 +115,17 @@ The proof of $\mathcal{O}(p) = \hat{p}$ is very similar.
     \frac{1}{2 i \hbar} \big(i \hbar \hat{p}_{i} + \hat{p}_{i} i \hbar \big) = \hat{p}_{i}
 \end{equation*}
 
-In the \textit{x-representation} the explicit form of $\hat{x}$ and $\hat{p}$ is $\hat{x} = x$ and
-$\hat{p_{x}} = - i \hbar \partialder{}{x}$.
+TODO: Groenewold theorem, Deformation quantization and geometric quantization note.
 
-TODO: study $\mathcal{O}(\{f(\vec{q}, \vec{p})\})$ and $\mathcal{O}(\{f + g, h\})$. How to get $\mathcal{O}(E)$?
+From now, we will use the explicit form of the operators in the \textit{x-representation}.
+
+\begin{equation}
+    \begin{gathered}
+        \mathcal{O}(p_{i}) = - i \hbar \partialder{}{x^{i}} \\
+        \mathcal{O}(E) = i \hbar \partialder{}{t}
+    \end{gathered}
+\end{equation}
+
 
 \section{Klein-Gordon equation}
 
@@ -137,9 +163,8 @@ it is possible to write the term $\frac{1}{c^{2}} \partialdernd{}{t} - \Delta$ a
 
 \section{Dirac equation}
 
-\paragraph{} One important fact about the Klein-Gordon equation is that it is second-order in time. Thus we need
-one more initial condition compared to the Schrodinger Equation. Dirac tried to find an equation that is first order
-in both space and time by finding the \textit{square root} of the Klein-Gordon equation. Let's start with the equation 
+\paragraph{} Dirac tried to find an equation that is first order in both space and time by finding the \textit{square root} 
+of the Klein-Gordon equation. Let's start with the equation 
 \ref{eq:klein_gordon}.
 
 \begin{equation*}
