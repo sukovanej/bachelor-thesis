@@ -145,5 +145,8 @@ amplitude.
 The hamiltonian for such a case is $\hat{H} = c\sqrt{\hat{p}^{2} + (mc)^{2}}$. The new amplitude $A_{2}$ is then given by
 
 \begin{equation*}
-    A_{2} = \bra{x_{1}} e^{- \frac{i}{\hbar} c\sqrt{\hat{p}^{2} + (mc)^{2}} t'}\ket{x_{0}} = 
+    \begin{gathered}
+        A_{2} = \bra{x_{1}} e^{- \frac{i}{\hbar} c\sqrt{\hat{p}^{2} + (mc)^{2}} t'}\ket{x_{0}} = \int dp \ \bra{x_{1}} e^{- \frac{i}{\hbar} c \sqrt{p^{2} + (mc)^{2}} t'} \ket{p} \bra{p} \ket{x_{0}} = \\
+        = \int dp \ e^{- \frac{i}{\hbar} c \sqrt{p^{2} + (mc)^{2}} t'} e^{\frac{i}{\hbar}p (x_{1} - x_{0})}
+    \end{gathered}
 \end{equation*}
