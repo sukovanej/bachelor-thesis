@@ -224,7 +224,7 @@ of the causility in physics. TODO: discussion on the causality definition.
 
 \begin{definition}
     \label{df:causality}
-    Suppose we understand what is meant by a \textit{cause} $C$ and a \textit{effect} $E$. If $C$ happens before $E$ and 
+    Suppose we understand what is meant by a \textit{cause} $C$ and an \textit{effect} $E$. If $C$ happens before $E$ and 
     $E$ is in the future lightcone from the perspective of $C$ then there might be a causality between $C$ and $E$.  Or
     formulated more usefuly for the computation - if $X_{C} = (0, 0)$ is the $C$'s space-time event and 
     $X_{E} = (x_{E}, ct_{E})$ is the $E$'s space-time event then $X_{C}$ can cause the $X_{E}$ if $t_{E} > |x_{E}|$.
@@ -306,23 +306,26 @@ The hamiltonian for such a case is $\hat{H} = c\sqrt{\hat{p}^{2} + (mc)^{2}}$. T
     \end{gathered}
 \end{equation*}
 
-One way to analyze this integral to cheat a little bit and evaluating it using a computer numerically. To do that let's split 
-the function inside of the integral into a real and an imaginary part.
+Let's analyze this integral in two ways. Firstly, let's try to solve the problem numerically to get the idea of how the integral behaves.
+The problem is similiar we had to deal with within the previous integral. The integrated function is oscillatory and thus the convergence
+is not expected in general. Numerically, we'll try to deal with that problem by choosing suitable boudaries. The best choice seems to be
+$p \in (-mc, mc)$ since it setups the desired condition on the \textit{velocity} to be smaller then the speed of light. Then we only need 
+to split the integral into a real and imaginary part.
 
 \begin{equation*}
     \begin{gathered}
-        \int_{\mathbb{R}} \frac{dp}{2 \pi \hbar} \ e^{- \frac{i}{\hbar} c \sqrt{p^{2} + (mc)^{2}} t'} e^{\frac{i}{\hbar}p (x_{1} - x_{0})} =  \\
+        \int_{\mathbb{R}} \frac{dp}{2 \pi \hbar} \ e^{- \frac{i}{\hbar} c \sqrt{p^{2} + (mc)^{2}} t'} e^{\frac{i}{\hbar}p (x_{1} - x_{0})} = \\
         = \begin{vmatrix}
             k_{t'}(p) = - \frac{1}{\hbar} c \sqrt{p^{2} + (mc)^{2}} t' \\
             l_{x_{1}}(p) = \frac{1}{\hbar}p (x_{1} - x_{0}) \\
-        \end{vmatrix} = \\
-        = \int_{\mathbb{R}} \frac{dp}{2 \pi \hbar} \ \bigg[ \sin(k_{t'}(p)) \sin(l_{x_{1}}(p)) - \sin(k_{t'}(p)) \sin(l_{x_{1}}(p)) + \\ i\big(\sin(k_{t'}(p)) \cos(l_{x_{1}}(p)) + \cos(k_{t'}(p)) \sin(l_{x_{1}}(p))\big) \bigg]
+        \end{vmatrix} \to \\
+        \to \int_{-mc}^{mc} \frac{dp}{2 \pi \hbar} \ \bigg[ \sin(k) \sin(l) - \sin(k) \sin(l) + i\big(\sin(k) \cos(l) + \cos(k) \sin(l)\big) \bigg]
     \end{gathered}
 \end{equation*}
 
 Now, we can integrate the function numerically using the Python\footnote{The script uses \textit{scipy}, \textit{matplotlib} and \textit{numpy} packages. 
-The used interpretter was \textit{cpython}, version 2.7} program \ref{code:free_relativistic_particle_amplitude}  because we integrate the 
-real part and the imaginary part separatelly. Then we can plot the final probability using the simple formula $P = |z|^{2} = \sqrt{Im\{z\}^{2} + Re\{z\}^{2}}$.
+The used interpretter was \textit{cpython}, version 2.7} program \ref{code:free_relativistic_particle_amplitude} because we integrate the 
+real part and the imaginary part separatelly. The graph contains the final probability amplitude.
 
 \begin{figure}[h]
     \centering
@@ -337,7 +340,7 @@ real part and the imaginary part separatelly. Then we can plot the final probabi
     \captionof{listing}{Numerical integration of the relativistic free particle propagation amplitude}
     \label{code:free_relativistic_particle_amplitude}
     \begin{minted}{Python}
-from numpy import sqrt, cos, sin, linspace
+from numpy import sqrt, cos, sin, linspace, exp, pi
 import scipy.integrate as integrate
 import matplotlib.pyplot as plt
 
@@ -348,12 +351,16 @@ def function(x, t):
     def real(p):
         k = - 1 / hbar * c * (sqrt(p ** 2 + (m * c)**2)) * t
         l = 1 / hbar * p * x
-        return cos(k) * cos(l) - sin(k) * sin(l)
+        return 1 / (2 * pi * hbar) * (
+            cos(k) * cos(l) - sin(k) * sin(l)
+        )
 
     def imaginary(p):
         k = - 1 / hbar * c * (sqrt(p ** 2 + (m * c)**2)) * t
         l = 1 / hbar * p * x
-        return sin(k) * cos(l) + cos(k) * sin(l)
+        return 1 / (2 * pi * hbar) * (
+            sin(k) * cos(l) + cos(k) * sin(l)
+        )
 
     return real, imaginary
 
@@ -363,11 +370,11 @@ y_list = []
 for x in x_list:
     real, imaginary = function(x, TIME)
 
-    r = integrate.quad(real, -c, c)
-    i = integrate.quad(imaginary, -c, c)
+    r = integrate.quad(real, -c * m, c * m)
+    i = integrate.quad(imaginary, -c * m, c * m)
     y_list.append(sqrt(r[0] ** 2 + i[0] ** 2) / 2)
 
-plt.xlabel("x-coordinate for $ct = {}$".format(TIME))
+plt.xlabel("x-coordinate for $t = {}c$".format(TIME))
 plt.ylabel("propagation probability")
 plt.plot(x_list, y_list)
 plt.plot([TIME, TIME], [0, max(y_list) * 1.2])
@@ -382,5 +389,41 @@ In the graph \ref{fig:free_relativistic_particle_probability} we also plotted th
 the event is not considered causal by our definition and the probability density should be zero there. Althought the value
 in the graph is reaching the zero very quickly it is very small but non-zero in the region outside of the lightcone (i.e. on the 
 right side of the vertical marking line). So we encouter the same problem as in the calculation with the non-relativistic
-particle. The difference is that now we deal with an unremovable problem. We used the relativistic energy and still the theory
-allowed the particle to travel faster then the speed of light with non-zero probability!
+particle. The problem of the numericall approach is we have to deal with the non-zero error of the computation. To make
+sure the integral is non-zero in the region outside of the lightcone we will investigate the integrall analytically using the 
+\textit{steepest descent method}. Let $S(p)$ be the exponent part of the integrated function and $\Delta x = x_{1} - x_{0}$. During
+the computation we will assume $(\Delta x)^{2} > (ct')^{2}$ to take into account that we investigate the region where the amplitude
+should be zero.
+
+\begin{equation*}
+    S(p) = - \frac{i}{\hbar} c \sqrt{p^{2} + (mc)^{2}} t' + \frac{i}{\hbar}p \Delta x
+\end{equation*}
+
+Now we should find the saddle points of $S$.
+
+\begin{equation*}
+    \begin{gathered}
+        \partialder{S(p)}{p} = 0 \\
+        p^{2} = \frac{(m c \Delta x)^{2}}{(c t')^{2} - (\Delta x)^{2}}, \ p_{\pm} = \pm \frac{i m c \Delta x}{\sqrt{(\Delta x)^{2} - (c t')^{2}}}
+    \end{gathered}
+\end{equation*}
+
+Now we will investigate whether the values $p_{+}$, $p_{-}$ are saddle points by finding the Hessian $\partialdernd{S(p)}{p}$.
+
+\begin{equation*}
+    \begin{gathered}
+        \partialdernd{S(p)}{p} = i \frac{\big((\Delta x)^{2} - (c t')^{2}\big)^{\frac{3}{2}}}{m (ct')^{2}}
+    \end{gathered}
+\end{equation*}
+
+TODO: why to pick the $+$ solution? Thus we can conclude the amplitude $A_{2}$ is 
+
+\begin{equation}
+    \label{eq:a_2_amplitude}
+    A_{2} \sim e^{S(p_{+})} = e^{- \frac{mc}{\hbar} \sqrt{(\Delta x)^{2} - (ct')^{2}}}
+\end{equation}
+
+The expression \ref{eq:a_2_amplitude} is non-zero for an arbitrary choice of $\Delta x$ and $t'$ thus it is
+non-zero also in the region outside of the lightcone. Thus we see we deal with the same problem again.
+The difference is that now we deal with an unexplainable problem. We used the relativistic energy and still the theory
+allowed the particle to travel faster then the speed of light with non-zero probability! 
