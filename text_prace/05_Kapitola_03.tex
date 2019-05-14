@@ -1,9 +1,59 @@
 \chapter{Quantum field theory}
 
-\section{Scalar field}
+In the first chapter we tried to make a smooth transition from the "classical" quantum mechanics
+to the relativistic one by considering the rules of the \textit{first quantization}. Our motivation
+was to use preserve the notations from the old theory, i.e. remain with the wavefunction being the
+mathematical object representing the physical state and operators corresponding to the dynamical 
+variables. As was shown in the second chapter using this approach we must deal a number of
+various conceptual problems like negative probabilities or the break of causality. 
 
-In non-relativistic case we can find the continuity equation by
+\paragraph{} Let's start with an observation. Using the canonical quantization we replaced each momentum, position
+and energy variable with the corresponding operator. So there is an operator for the position
+but not a single word was mentioned about the time. Why do we have a position operator but not a
+time operator? The time in all the equations was just a parameter. This assymetry between the time
+and space seems to be an another nail in the coffin of the first quantization. When searching for
+the the correct relativistic quantum thery we should seek such objects that treat space-time variables
+on the same footing. 
+
+\section{Scalar fields}
+
+\paragraph{} Let's start with the classical \textit{Lagrangian} function $L$. Langragian $L$ is being defined as a 
+function $L(q_{1}, \dots, q_{n}, \dot{q}_{1}, \dots, \dot{q}_{n}, t)$ describing the evolution of 
+$(q_{1}(t), \dots, q_{n}(t), \dot{q}_{1}(t), \dots, \dot{q}_{n}(t))$ in the configuration space using the least action 
+principle $\delta S = 0$,
+
+\begin{equation}
+    \label{eq:lagrangian_density}
+    S = \int dt \ L(q_{1}(t), \dots, q_{n}(t), \dot{q}_{1}(t), \dots, \dot{q}_{n}(t))
+\end{equation}
+
+Now we want to investigate the dynamics of a field $\phi(\vec{x}, t)$ using the \textit{Lagrangian density} 
+$\mathcal{L}(\vec{x}, t, \phi, \partialder{\phi}{\vec{x}}, \partialder{\phi}{t}, \dots)$ instead.
+
+\begin{equation}
+    \label{eq:lagrangian_density}
+    L = \int d\vec{x} \ \mathcal{L}(\vec{x}, t, \phi, \partialder{\phi}{\vec{x}}, \partialder{\phi}{t}, \dots)
+\end{equation}
+
+From now, we will deal with time $t$ and space $\vec{x}$ using the convenient relativistic notation 
+$x^{\mu} = (ct, x^{1}, x^{2}, x^{3})$.  As was shown in \cite{goldstein}
 
 \section{Second quantization}
+
+In this place I would like to cite a nice recipe from \cite{gifted_amateur} which summarizes
+the canonical quantization we will use for going from a classical field theory to the quantum 
+field theory:
+
+\begin{itemize}
+    \item \textbf{Step I}: Write down a classical Lagrangian density in terms of fields. This is the creative part because there are lots of 
+        possible Lagrangians. After this step, everything else is automatic.
+    \item \textbf{Step II}: Calculate the momentum density and work out the Hamiltonian density in terms of fields.
+    \item \textbf{Step III}: Now treat the fields and momentum density as operators. Impose commutation relations on them to make them 
+        quantum mechanical.
+    \item \textbf{Step IV}: Expand the fields in terms of creation/annihilation operators. This will allow us to use occupation numbers 
+        and stay sane.
+    \item \textbf{Step V}: That's it. Congratulations, you are now the proud owner of a working quantum field theory, provided you remember 
+        the normal ordering interpretation.
+\end{itemize}
 
 \section{Causality problem}
