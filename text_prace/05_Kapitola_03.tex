@@ -27,12 +27,12 @@ principle $\delta S = 0$,
     S = \int dt \ L(q_{1}(t), \dots, q_{n}(t), \dot{q}_{1}(t), \dots, \dot{q}_{n}(t))
 \end{equation}
 
-Now we want to investigate the dynamics of a field $\phi(\vec{x}, t)$ using the \textit{Lagrangian density} 
-$\mathcal{L}(\vec{x}, t, \phi, \partialder{\phi}{\vec{x}}, \partialder{\phi}{t}, \dots)$ instead.
+Now we want to investigate the dynamics of a field $\phi(\vec{x}, t)$ using the \textit{Lagrangian density}
+$\mathcal{L}(\phi, \partialder{\phi}{\vec{x}}, \partialder{\phi}{t}, \dots)$ instead.
 
 \begin{equation}
     \label{eq:lagrangian_density}
-    L = \int d\vec{x} \ \mathcal{L}(\vec{x}, t, \phi, \partialder{\phi}{\vec{x}}, \partialder{\phi}{t}, \dots)
+    L = \int d\vec{x} \ \mathcal{L}(\phi, \partialder{\phi}{\vec{x}}, \partialder{\phi}{t}, \partialdernd{\phi}{\vec{x}}, \partialdernd{\phi}{t} \dots)
 \end{equation}
 
 From now, we will deal with time $t$ and space $\vec{x}$ using the convenient relativistic notation
@@ -47,11 +47,35 @@ and the 4-gradient is given by
     \partial_{\mu} = (\frac{1}{c} \partialder{}{t}, \partialder{}{x^{1}}, \partialder{}{x^{2}}, \partialder{}{x^{3}})
 \end{equation*}
 
-As was shown in \cite{goldstein} the dynamics of $\phi$ is given by the equation
+As was shown in \cite{goldstein} using the Lagrangian $\mathcal{L} = \mathcal{L}(\phi, \partial_{\mu} \phi)$ the dynamics of $\phi$ is given 
+by the equation
 
 \begin{equation}
     \label{eq:euler_lagrange}
     \partialder{\mathcal{L}}{\phi} - \partial_{\mu} \bigg[ \partialder{\mathcal{L}}{(\partial_{\mu} \phi)} \bigg] = 0
+\end{equation}
+
+TODO: show the lorentz invariance of the euler legrange eq
+
+Now we will investigate a simple example of the lagrangian which will come in use later. TODO: units discussions
+
+\begin{equation}
+    \label{eq:klein_gordon_field}
+    \mathcal{L} = \frac{1}{2} \partial_{\mu} \phi \partial^{\mu} \phi + \frac{1}{2} m^{2} \phi^{2}
+\end{equation}
+
+Let's find the the equation for the Lagrangian \ref{eq:klein_gordon_field} using \ref{eq:euler_lagrange}.
+
+\begin{equation*}
+    \begin{gathered}
+        \partialder{\mathcal{L}}{\phi} = m^2 \phi
+        \partial_{\mu} \bigg[ \partialder{\mathcal{L}}{(\partial_{\mu} \phi)} = \partial^{\mu} \partial_{\mu} \phi
+    \end{gathered}
+\end{equation*}
+
+\begin{equation}
+    \label{eq:klein_gordon_field}
+    \mathcal{L} = \frac{1}{2} \partial_{\mu} \phi \partial^{\mu} \phi + \frac{1}{2} m^{2} \phi^{2}
 \end{equation}
 
 \section{Second quantization}
