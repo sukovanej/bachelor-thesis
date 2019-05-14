@@ -23,7 +23,7 @@ $(q_{1}(t), \dots, q_{n}(t), \dot{q}_{1}(t), \dots, \dot{q}_{n}(t))$ in the conf
 principle $\delta S = 0$,
 
 \begin{equation}
-    \label{eq:lagrangian_density}
+    \label{eq:action}
     S = \int dt \ L(q_{1}(t), \dots, q_{n}(t), \dot{q}_{1}(t), \dots, \dot{q}_{n}(t))
 \end{equation}
 
@@ -35,8 +35,24 @@ $\mathcal{L}(\vec{x}, t, \phi, \partialder{\phi}{\vec{x}}, \partialder{\phi}{t},
     L = \int d\vec{x} \ \mathcal{L}(\vec{x}, t, \phi, \partialder{\phi}{\vec{x}}, \partialder{\phi}{t}, \dots)
 \end{equation}
 
-From now, we will deal with time $t$ and space $\vec{x}$ using the convenient relativistic notation 
-$x^{\mu} = (ct, x^{1}, x^{2}, x^{3})$.  As was shown in \cite{goldstein}
+From now, we will deal with time $t$ and space $\vec{x}$ using the convenient relativistic notation
+
+\begin{equation*}
+    x^{\mu} = (ct, x^{1}, x^{2}, x^{3})
+\end{equation*}
+    
+and the 4-gradient is given by 
+
+\begin{equation*}
+    \partial_{\mu} = (\frac{1}{c} \partialder{}{t}, \partialder{}{x^{1}}, \partialder{}{x^{2}}, \partialder{}{x^{3}})
+\end{equation*}
+
+As was shown in \cite{goldstein} the dynamics of $\phi$ is given by the equation
+
+\begin{equation}
+    \label{eq:euler_lagrange}
+    \partialder{\mathcal{L}}{\phi} - \partial_{\mu} \bigg[ \partialder{\mathcal{L}}{(\partial_{\mu} \phi)} \bigg] = 0
+\end{equation}
 
 \section{Second quantization}
 
@@ -57,3 +73,5 @@ field theory:
 \end{itemize}
 
 \section{Causality problem}
+
+TODO: causality using the scalar field
