@@ -19,8 +19,8 @@ In the quantum mechanics, the analog of $q_{i}$ and $p_{i}$ are operators $\hat{
 \begin{definition}
     \label{df:poisson}
     Given two dynamical variables in the phace space $\mathcal{Q}$, \newline $f(\vec{q_{1}}, \dots, \vec{q_{n}}, \vec{p_{1}}, \dots, \vec{p_{n}}, t) 
-    \in C^{\infty}(\mathcal{Q}, \mathcal{R})$ and $g(\vec{q_{1}}, \dots, \vec{q_{n}}, \vec{p_{1}}, \dots, \vec{p_{n}}, t) 
-    \in C^{\infty}(\mathcal{Q}, \mathcal{R})$, the binary operation $\{f, g\}$ is called the \textbf{Poisson bracket} of these functions and takes the form
+    \in C^{\infty}(\mathcal{Q}, \mathbb{R})$ and $g(\vec{q_{1}}, \dots, \vec{q_{n}}, \vec{p_{1}}, \dots, \vec{p_{n}}, t) 
+    \in C^{\infty}(\mathcal{Q}, \mathbb{R})$, the binary operation $\{f, g\}$ is called the \textbf{Poisson bracket} of these functions and takes the form
 
     \begin{equation}
         \{f, g\} = \sum_{i=1}^{N}\left(\partialder{f}{q_{i}} \partialder{g}{p_{i}} - \partialder{f}{p_{i}} \partialder{g}{q_{i}}\right)
@@ -58,7 +58,7 @@ In the quantum mechanics, the analog of $q_{i}$ and $p_{i}$ are operators $\hat{
     \end{equation}
 \end{proof}
 
-\paragraph{} Paul Dirac has formulated a technique for generating operators in $H$ from dynamical variables in $C^{\infty}(\mathcal{Q}, \mathcal{R})$. 
+\paragraph{} Paul Dirac has formulated a technique for generating operators in $H$ from dynamical variables in $C^{\infty}(\mathcal{Q}, \mathbb{R})$. 
 The famous statement goes as follows.
 
 \begin{equation}
@@ -76,14 +76,14 @@ and then study some consequences.
     Let $\mathcal{Q}$ be a configuration space and $H$ the corresponding Hilbert space. The quantization map is
 
     \begin{equation}
-        \mathcal{O}: C^{\infty}(\mathcal{Q}, \mathcal{R}) \to Op(H) \\
+        \mathcal{O}: C^{\infty}(\mathcal{Q}, \mathbb{R}) \to Op(H) \\
     \end{equation}
     
     having the properties:
 
     \begin{enumerate}
         \item $\mathcal{O}$ is linear,
-        \item $\mathcal{O}(f)$ is self-adjoint, $f \in C^{\infty}(\mathcal{Q}, \mathcal{R})$,
+        \item $\mathcal{O}(f)$ is self-adjoint, $f \in C^{\infty}(\mathcal{Q}, \mathbb{R})$,
         \item the relation between commutator and the Poisson bracket is
             \begin{equation}
                 \label{eq:dirac_quantization_2}
