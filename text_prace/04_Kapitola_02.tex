@@ -2,7 +2,8 @@
 
 In this chapter we will discuss the problems of relativistic quantum mechanics. We will start
 with the problem of probability density. We will show that the probability density is positive-definite for Dirac Equation
-but is not in the case of the Klein-Gordon equation. Then we will TODO:
+but it is not in the case of the Klein-Gordon equation. Then we will investigate the problem of causality
+in the physics.
 
 \section{Probability density}
 
@@ -212,7 +213,16 @@ Which is
     \rho = \overline{\psi} \gamma^{0} \psi = \psi^{\dagger} \gamma^{0} \gamma^{0} \psi = \psi^{\dagger} \psi
 \end{equation*}
 
-and thus always a positive quantity! TODO: discussion on the results.
+and thus always a positive quantity! Unfortunatelly this doesn't mean the relativistic quantum mechanics is saved.
+Firstly, Dirac equation doesn't replace the Klein-Gordon equation since they each describe different particles. Klein-Gordon
+equation describes \textit{zero-spin} particles (thus it can really describe the electron despite the fact it was
+historically developed for that purpose!) and Dirac equation describes $\frac{1}{2}-spin$ particles. Moreover, for 
+both Klein-Gordon and Dirac equation we have to deal with negative energy solutions. In the case of Dirac equation
+there is the famous reasoning from which we conclude the existence of anti-electrons, i.e. positrons. The solution
+proposed by Dirac is that all the negative energy solutions are already filled and since fermions obey the Pauli 
+principle\footnote{Pauli principle says that two identical fermions can't occupy the same quantum state.} there
+is actually a lower bound energy for the solutions of the Dirac equation. The problem is that this reasoning can't
+be applied for the case of the Klein-Gordon equation since bosons ignore the Pauli principle.
 
 \section{Causality}
 
