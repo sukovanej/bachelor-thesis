@@ -1,7 +1,7 @@
 \chapter{Relativistic quantum mechanics}
 
 In this chapter we will introduce the basics of the canonical quantization. We will start by introducing the
-Poisson brackets and it's basic properties. Then we will define a quantization map $\mathcal{O}$ which maps the
+Poisson brackets and it's basic properties. Then we will define a quantization map $Q$ which maps the
 classical dynamical variable into the operator within a Hilbert space. Using this process we will then
 formulate the Klein-Gordon equation, an equation for describing a spinless particle in the quantum mechanics.
 We will see that this equation is second order both in time and space which will result some obstacles. With the
@@ -67,7 +67,7 @@ The famous statement goes as follows.
 \end{equation}
 
 That means that if we have dynamical variables $A$ and $B$ we can get their quantum conterparts $\hat{A}$ and $\hat{B}$ and the
-defining property is the equation \ref{eq:dirac_quantization}. Let's define the properties of the $\mathcal{O}$ map (see \cite{floarin_jung})
+defining property is the equation \ref{eq:dirac_quantization}. Let's define the properties of the $Q$ map (see \cite{floarin_jung})
 and then study some consequences.
 
 \begin{definition}
@@ -76,53 +76,104 @@ and then study some consequences.
     Let $\mathcal{Q}$ be a configuration space and $H$ the corresponding Hilbert space. The quantization map is
 
     \begin{equation}
-        \mathcal{O}: C^{\infty}(\mathcal{Q}, \mathbb{R}) \to Op(H) \\
+        Q: C^{\infty}(\mathcal{Q}, \mathbb{R}) \to Op(H) \\
     \end{equation}
     
     having the properties:
 
     \begin{enumerate}
-        \item $\mathcal{O}$ is linear,
-        \item $\mathcal{O}(f)$ is self-adjoint, $f \in C^{\infty}(\mathcal{Q}, \mathbb{R})$,
+        \item $Q$ is linear,
+        \item $Q(f)$ is self-adjoint, $f \in C^{\infty}(\mathcal{Q}, \mathbb{R})$,
         \item the relation between commutator and the Poisson bracket is
             \begin{equation}
                 \label{eq:dirac_quantization_2}
-                \mathcal{O}(\{A, B\}) = \frac{1}{i \hbar} [\hat{A}, \hat{B}]
+                Q(\{A, B\}) = \frac{1}{i \hbar} [\hat{A}, \hat{B}]
             \end{equation}
-        \item a complete set $\{f_{1}, \dots, f_{n}\}$ is mapped to a complete set $\{\mathcal{O}(f_{1}), \dots, \mathcal{O}(f_{n})\}$,
-        \item an identity $Id_{\mathcal{Q}}$ is mapped to the indentity $Id_{H} = \mathcal{O}(Id_{\mathcal{Q}})$
+        \item a complete set $\{f_{1}, \dots, f_{n}\}$ is mapped to a complete set $\{Q(f_{1}), \dots, Q(f_{n})\}$,
+        \item an identity $Id_{\mathcal{Q}}$ is mapped to the indentity $Id_{H} = Q(Id_{\mathcal{Q}})$
     \end{enumerate}
 \end{definition}
 
 It is convinient to use $[\hat{q}_{i}, \hat{p}_{j}] = i \hbar \delta_{ij}$ and \ref{eq:dirac_quantization_2} to show
-that $\mathcal{O}(q_{i}) = \hat{q}_{i}$. Firstly, we will rewrite $q$ using the Poisson bracket. The obvious choice is $q_{i} = \{\frac{q_{i}^{2}}{2}, p_{i}\}$.
-And from the definition \ref{eq:dirac_quantization_2} we see that $\mathcal{O}(\{\frac{q_{i}^{2}}{2}, p_{i}\}) = \frac{1}{i \hbar}[\frac{\hat{q}_{i}^{2}}{2}, \hat{p}_{i}]$.
+that $Q(q_{i}) = \hat{q}_{i}$. Firstly, we will rewrite $q$ using the Poisson bracket. The obvious choice is $q_{i} = \{\frac{q_{i}^{2}}{2}, p_{i}\}$.
+And from the definition \ref{eq:dirac_quantization_2} we see that $Q(\{\frac{q_{i}^{2}}{2}, p_{i}\}) = \frac{1}{i \hbar}[\frac{\hat{q}_{i}^{2}}{2}, \hat{p}_{i}]$.
 Using the identity for commutation relation $[AB, C] = [A, B]C + B[A, C]$\footnote{Proof by directly using the definition of 
 the commutator: $[AB, C] = ABC - CAB = ABC - ACB + ACB - CAB = A [B, C] + [A, C] B$} the commutator on the right-hand side can
 be written as follows.
 
 \begin{equation*}
-    \mathcal{O}(x_{i}) = \frac{1}{i \hbar}\bigg[\frac{\hat{x}_{i}^{2}}{2}, \hat{p}_{i}\bigg] = 
+    Q(x_{i}) = \frac{1}{i \hbar}\bigg[\frac{\hat{x}_{i}^{2}}{2}, \hat{p}_{i}\bigg] = 
     \frac{1}{2 i \hbar} \big(\hat{x}_{i} [\hat{x}_{i}, \hat{p}_{i}] + [\hat{x}_{i}, \hat{p}_{i}] \hat{x}_{i}\big) =
     \frac{1}{2 i \hbar} \big(\hat{x}_{i} i \hbar + i \hbar \hat{x}_{i}\big) = \hat{x}_{i}
 \end{equation*}
 
- $\mathcal{O}(p) = \hat{p}$ is very similar.
+ $Q(p) = \hat{p}$ is very similar.
 
 \begin{equation*}
-    \mathcal{O}(p_{i}) = \frac{1}{i \hbar}\bigg[\hat{x}_{i}, \frac{\hat{p}_{i}^{2}}{2}\bigg] = 
+    Q(p_{i}) = \frac{1}{i \hbar}\bigg[\hat{x}_{i}, \frac{\hat{p}_{i}^{2}}{2}\bigg] = 
     \frac{1}{2 i \hbar} \big([\hat{x}_{i}, \hat{p}_{i}] \hat{p}_{i} + \hat{p}_{i} [\hat{x}_{i}, \hat{p}_{i}]\big) =
     \frac{1}{2 i \hbar} \big(i \hbar \hat{p}_{i} + \hat{p}_{i} i \hbar \big) = \hat{p}_{i}
 \end{equation*}
 
-TODO: Groenewold theorem, Deformation quantization and geometric quantization note.
+\paragraph{Groenewold theorem} Althogh the procedure discussed so far might look promising it has a big problem.
+If we try to find an operator corresponding to a polynomial of $q$ and $p$, $P(q, p)$, we seek a Poisson
+bracket $\{P_{1}(q, p), P_{2}(q, p)\} = P(p, q)$. The problem is the Poisson bracket for the $P(q, p)$ does
+not have to be unique. Thus we may find two different expressions $\{P_{1}(q, p), P_{2}(q, p)\}$ and $\{P_{1}'(q, p), P_{2}'(q, p)\}$
+for a single $P(q, p)$ and we can end up with two different commutators $[Q(P_{1}), Q(P_{2})] \neq [Q(P'_{1}), Q(P'_{2})]$.
+This reasoning was done by Groenewold to proof that the quantization postulated by \ref{df:o_map} actually doesn't
+exist! The proof comes in a form of a counterexample.
+
+\begin{proof}
+    Let's find a quantization of a polynomial $x^{2} p$. We can choose two different Poisson brackets, for example
+
+    \begin{equation}
+        \bigg\{\frac{x^{3}}{3}, \frac{p^{2}}{2}\bigg\} = \bigg((x^{2} p) - 0\bigg) = x^{2} p \\
+    \end{equation}
+
+    \begin{equation}
+        \bigg\{x^{2} p, x p\bigg\} = \bigg((2 x p) (x) - (p) (x^{2}))\bigg) = x^{2} p \\
+    \end{equation}
+
+    now we should find the corresponding operators.
+
+    \begin{equation*}
+        \begin{gathered}
+            \bigg[\frac{\hat{x}^{3}}{3}, \frac{\hat{p}^{2}}{2}\bigg] = \frac{1}{6} \bigg(\hat{p} \big[\hat{x}^{3}, \hat{p}\big] + \big[\hat{x}^{3}, \hat{p}\big] \hat{p}\bigg) = 
+            \frac{i\hbar}{2} \big(\hat{x}^{2} \hat{p} + \hat{p}\hat{x}^{2}\big)
+        \end{gathered}
+    \end{equation*}
+
+    Let's use $Q (xp) = \frac{1}{2}\big(\hat{x} \hat{p} + \hat{p} \hat{x}\big)$\footnote{Since $xp = \big\{\frac{x^{2}}{2}, \frac{p^{2}}{2} \big\}$, $Q(xp) = 
+    \big[\frac{x^{2}}{2}, \frac{p^{2}}{2} \big] = \frac{1}{4} \big(\hat{x} [\hat{x}, \hat{p}^{2}] + [\hat{x}, \hat{p}^{2}] \hat{p}\big) = \frac{1}{2} (\hat{x} \hat{p} + \hat{p} \hat{x})$} and
+    the very last calculation to check the result of the second expression.
+
+    \begin{equation*}
+        \begin{gathered}
+            \bigg[Q(\hat{x}^{2} \hat{p}), Q(\hat{x} \hat{p})\bigg] = \frac{1}{4} \bigg( \big[\hat{x}^{2}\hat{p}, \hat{x}\hat{p}\big] + \big[\hat{x}^{2}\hat{p}, \hat{p}\hat{x}\big] + \big[\hat{p}\hat{x}^{2}, \hat{x}\hat{p}\big] + \big[\hat{p}\hat{x}^{2}, \hat{p}\hat{x}\big] \bigg) = \\
+            \frac{i \hbar}{2} \bigg(\hat{x}^{2}\hat{p} + \hat{p}\hat{x}^{2} + [\hat{x}, \hat{p}] \hat{x}\bigg) = \frac{i \hbar}{2} \bigg(\hat{x}^{2}\hat{p} + \hat{p}\hat{x}^{2}\bigg) - \hbar^{2} \hat{x}
+        \end{gathered}
+    \end{equation*}
+
+    Since we got two different operators for the same starting polynomial we must conclude the quantization map doesn't exist. But
+    it's not the end of the story. As is discussed in \cite{floarin_jung} we see our results differ only by $\hbar^{2}$ term. Thus
+    the quantization $Q$ can be seen as a first order aproximation.
+
+    \begin{equation}
+        \label{eq:dirac_quantization}
+        \{A, B\} \to \frac{1}{i \hbar}[\hat{A}, \hat{B}] + \mathcal{O}(\hbar^{2})
+    \end{equation}
+
+    Let's note, finally, that there is an extending procedure called \textit{deformation quantization} which takes into
+    account all the higher powers of $\hbar$.
+
+\end{proof}
 
 From now, we will use the explicit form of the operators in the \textit{x-representation}.
 
 \begin{equation}
     \begin{gathered}
-        \mathcal{O}(p_{i}) = - i \hbar \partialder{}{x^{i}} \\
-        \mathcal{O}(E) = i \hbar \partialder{}{t}
+        Q(p_{i}) = - i \hbar \partialder{}{x^{i}} \\
+        Q(E) = i \hbar \partialder{}{t}
     \end{gathered}
 \end{equation}
 
@@ -131,8 +182,8 @@ From now, we will use the explicit form of the operators in the \textit{x-repres
 
 \paragraph{} \textit{Klein-Gordon equation} is relativistic quantum mechanical equation named after Oskar Klein and Walter Gordon and
 it describes relativistic spinless particles. It can be found using quantization of the relativistic energy equation. We need to apply the
-$\mathcal{O}$ map on each side while taking into account that $\mathcal{O}(E^2) = - \hbar^{2} \partialdernd{}{t}$ and 
-$\mathcal{O}(\vec{p}^2) = - \hbar^{2} \Delta$.
+$Q$ map on each side while taking into account that $Q(E^2) = - \hbar^{2} \partialdernd{}{t}$ and 
+$Q(\vec{p}^2) = - \hbar^{2} \Delta$.
 
 \begin{equation*}
     \begin{gathered}
