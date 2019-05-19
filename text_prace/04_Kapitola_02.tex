@@ -8,7 +8,7 @@ in the physics.
 \section{Probability density}
 
 \paragraph{} In the non-relativistic case we can find the continuity equation by taking the complex conjugate
-of the Schrodinger's equation.
+of the Schrödinger's equation.
 
 \begin{equation*}
     \begin{gathered}
@@ -17,7 +17,7 @@ of the Schrodinger's equation.
     \end{gathered}
 \end{equation*}
 
-Then we mutiply the first equation by $\psi$ and the second one by $\psi^{*}$.
+Then we multiply the first equation by $\psi$ and the second one by $\psi^{*}$.
 
 \begin{equation*}
     \begin{gathered}
@@ -26,8 +26,8 @@ Then we mutiply the first equation by $\psi$ and the second one by $\psi^{*}$.
     \end{gathered}
 \end{equation*}
 
-If we substract these two equations from each other and use the formula for derivative $(a \cdot b)' = a' \cdot b + a \cdot b'$
-we wil get a form from which it will be easy to identify the continuity equation $\partialder{\rho}{t} + div \vec{j} = 0$.
+If we subtract these two equations from each other and use the formula for derivative $(a \cdot b)' = a' \cdot b + a \cdot b'$
+we will get a form from which it will be easy to identify the continuity equation $\partialder{\rho}{t} + div \vec{j} = 0$.
 
 \begin{equation*}
     i \hbar \partialder{\left|\psi\right|^{2}}{t}  = \psi^{*} \hat{H} \psi - \psi \big(\hat{H} \psi \big)^{*}
@@ -48,14 +48,14 @@ and the desired form is
 \end{equation*}
 
 Now we will do the same for the Klein-Gordon equation \ref{eq:klein_gordon}. Let's do the same procedure here and
-find the complex conjugate, multiply both equations by $\psi$ and $\psi^{*}$ and then substract them. After that 
+find the complex conjugate, multiply both equations by $\psi$ and $\psi^{*}$ and then subtract them. After that 
 let's focus on the term which contains the time derivative a thus will represent the \textit{probability density}.
 
 \begin{equation*}
     \partialder{\rho}{t} \sim \frac{1}{2i} \bigg[ \psi^{*} \partialdernd{}{t} \psi - \psi \partialdernd{}{t} \psi^{*} \bigg]
 \end{equation*}
 
-Now we can find what $\rho$ is proportial to. 
+Now we can find what $\rho$ is proportional to. 
 
 \begin{equation}
     \rho \sim \frac{1}{2i} \bigg[ \psi^{*} \partialder{}{t} \psi - \psi \partialder{}{t} \psi^{*} \bigg]
@@ -74,7 +74,7 @@ Now it is easy to see the problem. In the non-relativistic case the probability 
 non-negative for any $\psi: \mathbb{R} \to \mathbb{C}$. In the case of Klein-Gordon equation, we can see the probability 
 density is zero whenever the wave function is either exclusively real or imaginary. Moreover, since both 
 $\partialder{\psi_{1}}{t}$ and $\partialder{\psi_{2}}{t}$ are arbitrary, the value can be negative. This is in contradiction
-with the intepretation of $\rho$ as the \textit{probability density of measuring the system within a given state $\psi$}.
+with the interpretation of $\rho$ as the \textit{probability density of measuring the system within a given state $\psi$}.
 To solve this problem, Dirac introduced his equation. Let's check the probability density using the procedure of deriving
 the continuity equation from the Dirac equation \cite{dirac_equation_history}. Let's start with the Dirac equation of the 
 form as follows.
@@ -227,14 +227,14 @@ be applied for the case of the Klein-Gordon equation since bosons ignore the Pau
 \section{Causality}
 
 Now we would like to investigate the problem of causality in the quantum mechanics. We're going to study the transition
-amplitude of a free particle to propagate from one space-time point to another one. We will assume the standard definition
-of the causility in physics. TODO: discussion on the causality definition.
+amplitude of a free particle to propagate from one space-time point to another one. Let's start by discussing the definition
+of the causality. Causality is relationship between a cause and an effect. Naively
 
 \begin{definition}
     \label{df:causality}
     Suppose we understand what is meant by a \textit{cause} $C$ and an \textit{effect} $E$. If $C$ happens before $E$ and 
-    $E$ is in the future lightcone from the perspective of $C$ then there might be a causality between $C$ and $E$.  Or
-    formulated more usefuly for the computation - if $X_{C} = (0, 0)$ is the $C$'s space-time event and 
+    $E$ is in the future light cone from the perspective of $C$ then there might be a causality between $C$ and $E$.  Or
+    formulated more usefully for the computation - if $X_{C} = (0, 0)$ is the $C$'s space-time event and 
     $X_{E} = (x_{E}, ct_{E})$ is the $E$'s space-time event then $X_{C}$ can cause the $X_{E}$ if $t_{E} > |x_{E}|$.
 \end{definition}
 
@@ -265,10 +265,10 @@ Hamiltonian is simply $\hat{H} = \frac{\hat{p}^{2}}{2m}$.
     \end{gathered}
 \end{equation*}
 
-In the integral we can substitute $p \to p + - \frac{m}{t'}(x_{1} - x_{0})$ so that the boudaries remain unchanged. Now
-the problem is that with the pure imaginary exponent we have an osciallatory function with no other term to guarantee
+In the integral we can substitute $p \to p + - \frac{m}{t'}(x_{1} - x_{0})$ so that the boundaries remain unchanged. Now
+the problem is that with the pure imaginary exponent we have an oscillatory function with no other term to guarantee
 the integral converges. As was shown in \cite{imaginary_gaussian_integral}, we can actually use the trick of \textit{rotating}
-the $p$ in the complex plane by $\frac{\pi}{4}$ and get a known form of a gaussian integral multiplied by the phase factor.
+the $p$ in the complex plane by $\frac{\pi}{4}$ and get a known form of a Gaussian integral multiplied by the phase factor.
 
 \begin{equation*}
     \begin{gathered}
@@ -285,7 +285,7 @@ the $p$ in the complex plane by $\frac{\pi}{4}$ and get a known form of a gaussi
     A_{1} = \sqrt{\frac{\hbar m}{2 \pi i t'}} e^{\frac{im}{2\hbar t'} (x_{1} - x_{0})^{2}}
 \end{equation}
 
-From the final result \ref{eq:free_particle_propagation_amplitude} we see that the probability density of meassuring the
+From the final result \ref{eq:free_particle_propagation_amplitude} we see that the probability density of measuring the
 transition $(x_{0}, 0) \to (x_{1}, t')$ will be
 
 \begin{equation*}
@@ -293,7 +293,7 @@ transition $(x_{0}, 0) \to (x_{1}, t')$ will be
 \end{equation*}
 
 thus for an arbitrary choice of $(x_{1} - x_{0})$ there is no fixed time $t'$. This results in a possibility for the particle
-being outside of the lightcone with a non-zero probability. This result clearly violates the causality. But the conslusion is
+being outside of the light cone with a non-zero probability. This result clearly violates the causality. But the conclusion is
 not unexpected in the case of the non-relativistic free particle. We used the definition within the relativity theory to 
 formulate the condition for the causality but the Hamiltonian $\hat{H}$ doesn't event include the $c$ constant. We could try
 to get a proper result by assuming the relativistic energy \ref{eq:relativistic_energy}. As we have shown, a quantization of such an
@@ -305,7 +305,7 @@ amplitude.
     E^{2} = \vec{p}^{2} c^{2} + m^{2} c^{4}
 \end{equation}
 
-The hamiltonian for such a case is $\hat{H} = c\sqrt{\hat{p}^{2} + (mc)^{2}}$. The new amplitude $A_{2}$ is then given by
+The Hamiltonian for such a case is $\hat{H} = c\sqrt{\hat{p}^{2} + (mc)^{2}}$. The new amplitude $A_{2}$ is then given by
 
 \begin{equation*}
     \begin{gathered}
@@ -315,8 +315,8 @@ The hamiltonian for such a case is $\hat{H} = c\sqrt{\hat{p}^{2} + (mc)^{2}}$. T
 \end{equation*}
 
 Let's analyze this integral in two ways. Firstly, let's try to solve the problem numerically to get the idea of how the integral behaves.
-The problem is similiar we had to deal with within the previous integral. The integrated function is oscillatory and thus the convergence
-is not expected in general. Numerically, we'll try to deal with that problem by choosing suitable boudaries. The best choice seems to be
+The problem is similar we had to deal with within the previous integral. The integrated function is oscillatory and thus the convergence
+is not expected in general. Numerically, we'll try to deal with that problem by choosing suitable boundaries. The best choice seems to be
 $p \in (-mc, mc)$ since it setups the desired condition on the \textit{velocity} to be smaller then the speed of light. Then we only need 
 to split the integral into a real and imaginary part.
 
@@ -332,8 +332,8 @@ to split the integral into a real and imaginary part.
 \end{equation*}
 
 Now, we can integrate the function numerically using the Python\footnote{The script uses \textit{scipy}, \textit{matplotlib} and \textit{numpy} packages. 
-The used interpretter was \textit{cpython}, version 2.7} program \ref{code:free_relativistic_particle_amplitude} because we integrate the 
-real part and the imaginary part separatelly. The graph contains the final probability amplitude.
+The used interpreter was \textit{cpython}, version 2.7} program \ref{code:free_relativistic_particle_amplitude} because we integrate the 
+real part and the imaginary part separately. The graph contains the final probability amplitude.
 
 \begin{figure}[h]
     \centering
@@ -394,11 +394,11 @@ plt.show()
 \clearpage
 
 In the graph \ref{fig:free_relativistic_particle_probability} we also plotted the vertical line which marks the point from which 
-the event is not considered causal by our definition and the probability density should be zero there. Althought the value
-in the graph is reaching the zero very quickly it is very small but non-zero in the region outside of the lightcone (i.e. on the 
-right side of the vertical marking line). So we encouter the same problem as in the calculation with the non-relativistic
-particle. The problem of the numericall approach is we have to deal with the non-zero error of the computation. To make
-sure the integral is non-zero in the region outside of the lightcone we will investigate the integrall analytically using the 
+the event is not considered causal by our definition and the probability density should be zero there. Although the value
+in the graph is reaching the zero very quickly it is very small but non-zero in the region outside of the light cone (i.e. on the 
+right side of the vertical marking line). So we encounter the same problem as in the calculation with the non-relativistic
+particle. The problem of the numerical approach is we have to deal with the non-zero error of the computation. To make
+sure the integral is non-zero in the region outside of the light cone we will investigate the integral analytically using the 
 \textit{steepest descent method}. Let $S(p)$ be the exponent part of the integrated function and $\Delta x = x_{1} - x_{0}$. During
 the computation we will assume $(\Delta x)^{2} > (ct')^{2}$ to take into account that we investigate the region where the amplitude
 should be zero.
@@ -432,6 +432,6 @@ TODO: why to pick the $+$ solution? Thus we can conclude the amplitude $A_{2}$ i
 \end{equation}
 
 The expression \ref{eq:a_2_amplitude} is non-zero for an arbitrary choice of $\Delta x$ and $t'$ thus it is
-non-zero also in the region outside of the lightcone. Thus we see we deal with the same problem again.
+non-zero also in the region outside of the light cone. Thus we see we deal with the same problem again.
 The difference is that now we deal with an unexplainable problem. We used the relativistic energy and still the theory
 allowed the particle to travel faster then the speed of light with non-zero probability! 
