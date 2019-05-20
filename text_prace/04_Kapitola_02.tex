@@ -7,6 +7,8 @@ in the physics.
 
 \section{Probability density}
 
+\subsection{Schrödinger's equation}
+
 \paragraph{} In the non-relativistic case we can find the continuity equation by taking the complex conjugate
 of the Schrödinger's equation.
 
@@ -47,6 +49,8 @@ and the desired form is
     \partialder{\left|\psi\right|^{2}}{t} + div \bigg[ \frac{\hbar}{2mi} \bigg( \psi \nabla \psi^{*} - \psi^{*} \nabla \psi \bigg) \bigg] = 0
 \end{equation*}
 
+\subsection{Klein-Gordon equation}
+
 Now we will do the same for the Klein-Gordon equation \ref{eq:klein_gordon}. Let's do the same procedure here and
 find the complex conjugate, multiply both equations by $\psi$ and $\psi^{*}$ and then subtract them. After that 
 let's focus on the term which contains the time derivative a thus will represent the \textit{probability density}.
@@ -75,7 +79,11 @@ non-negative for any $\psi: \mathbb{R} \to \mathbb{C}$. In the case of Klein-Gor
 density is zero whenever the wave function is either exclusively real or imaginary. Moreover, since both 
 $\partialder{\psi_{1}}{t}$ and $\partialder{\psi_{2}}{t}$ are arbitrary, the value can be negative. This is in contradiction
 with the interpretation of $\rho$ as the \textit{probability density of measuring the system within a given state $\psi$}.
-To solve this problem, Dirac introduced his equation. Let's check the probability density using the procedure of deriving
+To solve this problem, Dirac introduced his equation. 
+
+\subsection{Dirac equation}
+
+Let's check the probability density using the procedure of deriving
 the continuity equation from the Dirac equation \cite{dirac_equation_history}. Let's start with the Dirac equation of the 
 form as follows.
 
@@ -148,7 +156,7 @@ For further discussion let's introduce some useful theorems.
 
 \end{proof}
 
-We will use a similar trick we used within the Schrodinger equation or the Klein-Gordon equation. We
+We will use a similar trick we used within the Schrödinger's equation or the Klein-Gordon equation. We
 take the Hermitian adjoint of the left-hand side of the Dirac equation \ref{eq:dirac_equation}.
 
 \begin{equation*}
@@ -195,9 +203,9 @@ by $\overline{\psi}$ from the right. Then we will simply add these two equations
 
 \begin{equation*}
     \begin{gathered}
-        i \hbar \partial_{\mu} \overline{\psi} \gamma^{\mu} \psi + mc \overline{\psi} \psi = 0 \, \land \,
-        i \hbar \overline{\psi} \gamma^{\mu} \partial_{\mu} \psi - mc \overline{\psi} \psi = 0 \implies \\
-        \partial_{\mu} \overline{\psi} \gamma^{\mu} \psi + \overline{\psi} \gamma^{\mu} \partial_{\mu} \psi = 0
+        i \hbar \partial_{\mu} \overline{\psi} \gamma^{\mu} \psi + mc \overline{\psi} \psi = 0 \quad \land \quad
+        i \hbar \overline{\psi} \gamma^{\mu} \partial_{\mu} \psi - mc \overline{\psi} \psi = 0 \\
+        \implies \partial_{\mu} \overline{\psi} \gamma^{\mu} \psi + \overline{\psi} \gamma^{\mu} \partial_{\mu} \psi = 0
     \end{gathered}
 \end{equation*}
 
@@ -213,7 +221,7 @@ Which is
     \rho = \overline{\psi} \gamma^{0} \psi = \psi^{\dagger} \gamma^{0} \gamma^{0} \psi = \psi^{\dagger} \psi
 \end{equation*}
 
-and thus always a positive quantity! Unfortunatelly this doesn't mean the relativistic quantum mechanics is saved.
+and thus always a positive quantity! Unfortunately this doesn't mean the relativistic quantum mechanics is saved.
 Firstly, Dirac equation doesn't replace the Klein-Gordon equation since they each describe different particles. Klein-Gordon
 equation describes \textit{zero-spin} particles (thus it can really describe the electron despite the fact it was
 historically developed for that purpose!) and Dirac equation describes $\frac{1}{2}-spin$ particles. Moreover, for 
@@ -228,7 +236,11 @@ be applied for the case of the Klein-Gordon equation since bosons ignore the Pau
 
 Now we would like to investigate the problem of causality in the quantum mechanics. We're going to study the transition
 amplitude of a free particle to propagate from one space-time point to another one. Let's start by discussing the definition
-of the causality. Causality is relationship between a cause and an effect. Naively
+of the causality. Causality is relationship between a cause and an effect. Naively, it feels reasonable to expect
+two events to not be causal if they happen in a great distance from each other or within a big time difference. Since
+a massive object always travel with a lower speed then a speed of light it makes sense to setup the condition of
+causality using the speed of light. Basically, if it is possible for an object with a configuration $X_{1} = (x_{1}, ct_{1})$
+to get to the point $X_{2} = (x_{2}, ct_{2})$ then there might be a causality between $X_{1}$ and $X_{2}$.
 
 \begin{definition}
     \label{df:causality}
@@ -337,7 +349,7 @@ real part and the imaginary part separately. The graph contains the final probab
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{free_relativistic_particle.png}
+    \includegraphics[width=0.9\textwidth]{free_relativistic_particle.png}
     \caption{Propagation amplitude for a free relativistic particle}
     \label{fig:free_relativistic_particle_probability}
 \end{figure}

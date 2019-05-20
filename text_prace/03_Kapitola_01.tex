@@ -3,7 +3,7 @@
 In this chapter we will introduce the basics of the canonical quantization. We will start by introducing the
 Poisson brackets and it's basic properties. Then we will define a quantization map $Q$ which maps the
 classical dynamical variable into the operator within a Hilbert space. Using this process we will then
-formulate the Klein-Gordon equation, an equation for describing a spinless particle in the quantum mechanics.
+formulate the Klein-Gordon equation, an equation for describing a spin-less particle in the quantum mechanics.
 We will see that this equation is second order both in time and space which will result some obstacles. With the
 hope of solving this issue we will construct the Dirac equation which describes the $\frac{1}{2}$-spin particle.
 
@@ -12,13 +12,13 @@ hope of solving this issue we will construct the Dirac equation which describes 
 \paragraph{} Canonical quantization is a process of transition from a classical theory to the quantum one. If a 
 quantum problem has an analog in the classical mechanics we can use the process of quantization to find the formulation
 in the quantum mechanics using the analogous equations in the classical one. In the classical mechanics a state of the system
-is represented by coordinates in the \textit{phase space} $(\vec{q_{1}}, \dots, \vec{q_{n}}, \vec{p_{1}}, \dots, \vec{p_{n}}, t)$.
+is represented by coordinates in the \textit{phase space} $(\vec{q_{1}}, \dots, \vec{q_{n}}, \vec{p_{1}}, \dots, \vec{p_{n}})$.
 In the quantum mechanics, the analog of $q_{i}$ and $p_{i}$ are operators $\hat{q}_{i}$ and $\hat{p}_{i}$ acting in the 
 \textit{Hilbert space}.
 
 \begin{definition}
     \label{df:poisson}
-    Given two dynamical variables in the phace space $\mathcal{Q}$, \newline $f(\vec{q_{1}}, \dots, \vec{q_{n}}, \vec{p_{1}}, \dots, \vec{p_{n}}, t) 
+    Given two dynamical variables in the phase space $\mathcal{Q}$, \newline $f(\vec{q_{1}}, \dots, \vec{q_{n}}, \vec{p_{1}}, \dots, \vec{p_{n}}, t) 
     \in C^{\infty}(\mathcal{Q}, \mathbb{R})$ and $g(\vec{q_{1}}, \dots, \vec{q_{n}}, \vec{p_{1}}, \dots, \vec{p_{n}}, t) 
     \in C^{\infty}(\mathcal{Q}, \mathbb{R})$, the binary operation $\{f, g\}$ is called the \textbf{Poisson bracket} of these functions and takes the form
 
@@ -58,7 +58,7 @@ In the quantum mechanics, the analog of $q_{i}$ and $p_{i}$ are operators $\hat{
     \end{equation}
 \end{proof}
 
-\paragraph{} Paul Dirac has formulated a technique for generating operators in $H$ from dynamical variables in $C^{\infty}(\mathcal{Q}, \mathbb{R})$. 
+\paragraph{} Paul Dirac has formulated a principle for generating operators in $H$ from dynamical variables in $C^{\infty}(\mathcal{Q}, \mathbb{R})$. 
 The famous statement goes as follows.
 
 \begin{equation}
@@ -66,14 +66,14 @@ The famous statement goes as follows.
     \{A, B\} \to \frac{1}{i \hbar}[\hat{A}, \hat{B}]
 \end{equation}
 
-That means that if we have dynamical variables $A$ and $B$ we can get their quantum conterparts $\hat{A}$ and $\hat{B}$ and the
+That means that if we have dynamical variables $A$ and $B$ we can get their quantum counterparts $\hat{A}$ and $\hat{B}$ and the
 defining property is the equation \ref{eq:dirac_quantization}. Let's define the properties of the $Q$ map (see \cite{floarin_jung})
 and then study some consequences.
 
 \begin{definition}
     \label{df:o_map}
 
-    Let $\mathcal{Q}$ be a configuration space and $H$ the corresponding Hilbert space. The quantization map is
+    Let $\mathcal{Q}$ be a position space and $H$ the corresponding Hilbert space. The quantization map is
 
     \begin{equation}
         Q: C^{\infty}(\mathcal{Q}, \mathbb{R}) \to Op(H) \\
@@ -90,11 +90,11 @@ and then study some consequences.
                 Q(\{A, B\}) = \frac{1}{i \hbar} [\hat{A}, \hat{B}]
             \end{equation}
         \item a complete set $\{f_{1}, \dots, f_{n}\}$ is mapped to a complete set $\{Q(f_{1}), \dots, Q(f_{n})\}$,
-        \item an identity $Id_{\mathcal{Q}}$ is mapped to the indentity $Id_{H} = Q(Id_{\mathcal{Q}})$
+        \item an identity $Id_{\mathcal{Q}}$ is mapped to the identity $Id_{H} = Q(Id_{\mathcal{Q}})$
     \end{enumerate}
 \end{definition}
 
-It is convinient to use $[\hat{q}_{i}, \hat{p}_{j}] = i \hbar \delta_{ij}$ and \ref{eq:dirac_quantization_2} to show
+It is convenient to use $[\hat{q}_{i}, \hat{p}_{j}] = i \hbar \delta_{ij}$ and \ref{eq:dirac_quantization_2} to show
 that $Q(q_{i}) = \hat{q}_{i}$. Firstly, we will rewrite $q$ using the Poisson bracket. The obvious choice is $q_{i} = \{\frac{q_{i}^{2}}{2}, p_{i}\}$.
 And from the definition \ref{eq:dirac_quantization_2} we see that $Q(\{\frac{q_{i}^{2}}{2}, p_{i}\}) = \frac{1}{i \hbar}[\frac{\hat{q}_{i}^{2}}{2}, \hat{p}_{i}]$.
 Using the identity for commutation relation $[AB, C] = [A, B]C + B[A, C]$\footnote{Proof by directly using the definition of 
@@ -115,7 +115,7 @@ be written as follows.
     \frac{1}{2 i \hbar} \big(i \hbar \hat{p}_{i} + \hat{p}_{i} i \hbar \big) = \hat{p}_{i}
 \end{equation*}
 
-\paragraph{Groenewold theorem} Althogh the procedure discussed so far might look promising it has a big problem.
+\paragraph{Groenewold theorem} Although the procedure discussed so far might look promising it has a big problem.
 If we try to find an operator corresponding to a polynomial of $q$ and $p$, $P(q, p)$, we seek a Poisson
 bracket $\{P_{1}(q, p), P_{2}(q, p)\} = P(p, q)$. The problem is the Poisson bracket for the $P(q, p)$ does
 not have to be unique. Thus we may find two different expressions $\{P_{1}(q, p), P_{2}(q, p)\}$ and $\{P_{1}'(q, p), P_{2}'(q, p)\}$
@@ -156,7 +156,7 @@ exist! The proof comes in a form of a counterexample.
 
     Since we got two different operators for the same starting polynomial we must conclude the quantization map doesn't exist. But
     it's not the end of the story. As is discussed in \cite{floarin_jung} we see our results differ only by $\hbar^{2}$ term. Thus
-    the quantization $Q$ can be seen as a first order aproximation.
+    the quantization $Q$ can be seen as a first order approximation.
 
     \begin{equation}
         \label{eq:dirac_quantization}
@@ -170,7 +170,7 @@ exist! The proof comes in a form of a counterexample.
 
 From now, we will use the explicit form of the operators in the \textit{x-representation}. As we've seen the obstruction of
 constructing the quantization map and we don't really want to deep dive into more complicated methods we will now use rather
-a heuristical approach for the 1st quantization and simply use the following quantization rules for momentem and energy.
+a heuristic approach for the 1st quantization and simply use the following quantization rules for momentum and energy.
 
 \begin{equation}
     \begin{gathered}
@@ -183,7 +183,7 @@ a heuristical approach for the 1st quantization and simply use the following qua
 \section{Klein-Gordon equation}
 
 \paragraph{} \textit{Klein-Gordon equation} is relativistic quantum mechanical equation named after Oskar Klein and Walter Gordon and
-it describes relativistic spinless particles. It can be found using quantization of the relativistic energy equation. We need to apply the
+it describes relativistic spin-less particles. It can be found using quantization of the relativistic energy equation. We need to apply the
 $Q$ map on each side while taking into account that $Q(E^2) = - \hbar^{2} \partialdernd{}{t}$ and 
 $Q(\vec{p}^2) = - \hbar^{2} \Delta$.
 
@@ -194,14 +194,14 @@ $Q(\vec{p}^2) = - \hbar^{2} \Delta$.
     \end{gathered}
 \end{equation*}
 
-After a little rearranging and setting $\frac{m^{2} c^{2}}{\hbar^{2}} = \mu^{2}$, we will finaly get the famous form \ref{eq:klein_gordon}.
+After a little rearranging and setting $\frac{m^{2} c^{2}}{\hbar^{2}} = \mu^{2}$, we will finally get the famous form \ref{eq:klein_gordon}.
 
 \begin{equation}
     \label{eq:klein_gordon}
     \bigg(\frac{1}{c^{2}} \partialdernd{}{t} - \Delta + \mu^{2} \bigg) \psi = 0
 \end{equation}
 
-Let's rewrite the equation in a form so we can see it is \textit{lorentz invariant}. We use the fact that \textit{4-gradient}
+Let's rewrite the equation in a form so we can see it is \textit{Lorentz invariant}. We use the fact that \textit{4-gradient}
 transforms the same way as any other 4-vector and than express the Klein-Gordon equation using 4-gradient dot products.
 Using the metric $\eta^{\mu \nu} = diag(1, -1, -1, -1)$ and the \textit{4-gradient} $\partial_{\mu} = (\partialder{}{t}, \partialder{}{x}, \partialder{}{y}, \partialder{}{z})$ 
 it is possible to write the term $\frac{1}{c^{2}} \partialdernd{}{t} - \Delta$ as follows.
@@ -246,7 +246,7 @@ and by rewriting the expression above we get
 
 We see the expansion gave us the conditions for the $\gamma$'s, $(\gamma^{0})^{2} = 1$, $(\gamma^{i})^{2} = -1$ and $\gamma^{i} \gamma^{j} + \gamma^{j} \gamma^{i} = 0$
 for $i, j \in \{1, 2, 3\}$. To satisfy all these conditions $\gamma^{\mu}$ is clearly not a number. When Dirac was deriving the equation
-he immediately recongnised the gammas to be 4x4 matrices.
+he immediately recognized the gammas to be 4x4 matrices.
 
 \begin{equation*}
     \begin{gathered}
@@ -283,7 +283,7 @@ he immediately recongnised the gammas to be 4x4 matrices.
 
 TODO: gamma matrices
 
-The the final famous form of the Dirac equation is
+The final famous form of the Dirac equation is
 
 \begin{equation}
     \label{eq:dirac_original}
