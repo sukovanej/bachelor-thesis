@@ -57,31 +57,116 @@ by the equation
 
 TODO: show the lorentz invariance of the euler legrange eq
 
-Now we will investigate a simple example of the Lagrangian which will come in use later. TODO: units discussions
+Now we will investigate a simple example of the Lagrangian which will come in use later. Also, since it is a standard in
+the literature to use the \textit{natural units} we will also set $\hbar = 1$ and $c = 1$ and if needed the constants
+can be retrieved using the dimensional analysis.
 
 \begin{equation}
     \label{eq:klein_gordon_field}
-    \mathcal{L} = \frac{1}{2} \partial_{\mu} \phi \partial^{\mu} \phi + \frac{1}{2} m^{2} \phi^{2}
+    \mathcal{L} = \frac{1}{2} \partial_{\mu} \phi \partial^{\mu} \phi - \frac{1}{2} m^{2} \phi^{2}
 \end{equation}
 
 Let's find the equation for the Lagrangian \ref{eq:klein_gordon_field} using \ref{eq:euler_lagrange}.
 
-TODO: klein-gordon field
-
 \begin{equation*}
     \begin{gathered}
-        \partialder{\mathcal{L}}{\phi} = m^2 \phi
-        \partial_{\mu} \bigg[ \partialder{\mathcal{L}}{(\partial_{\mu} \phi)} \bigg] = \partial^{\mu} \partial_{\mu} \phi
+        \partialder{\mathcal{L}}{\phi} = - m^2 \phi \\
+        \frac{d}{dx^{\mu}} \bigg[ \partialder{\mathcal{L}}{(\partial_{\mu} \phi)} \bigg] = \partial^{\mu} \partial_{\mu} \phi
     \end{gathered}
 \end{equation*}
 
-TODO: klein-gordon solution
+The equation for the field $\phi$ takes the form \ref{eq:klein_gordon_field_equation} and is very similar to the Klein-Gordon
+equation from the first chapter!
+
+\begin{equation}
+    \label{eq:klein_gordon_field_equation}
+    \partial^{\mu} \partial_{\mu} \phi + m^2 \phi = 0
+\end{equation}
+
+We will find a solution of this equation using the Fourier transformation of $\phi$.
+
+\begin{equation}
+    \phi (\vec{x}, t) = \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3}} \ e^{i \vec{p} \vec{x}} \ \phi (\vec{p}, t)
+\end{equation}
+
+The equation \ref{eq:klein_gordon_field_equation} then becomes
+
+\begin{equation*}
+    \begin{gathered}
+        (\partial^{\mu} \partial_{\mu} + m^2) \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3}} \ e^{i \vec{p} \vec{x}} \ \phi (\vec{p}, t) = 0 \\
+        \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3}} \ (\partial_{t}^{2} - \Delta + m^2) \ e^{i \vec{p} \vec{x}} \ \phi (\vec{p}, t) = 0 \\
+        \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3}} \ (\partial_{t}^{2} + | \vec{p} |^{2} + m^2) \ e^{i \vec{p} \vec{x}} \ \phi (\vec{p}, t) = 0
+    \end{gathered}
+\end{equation*}
+
+which results in the equation
+
+\begin{equation*}
+    (\partial_{t}^{2} + | \vec{p} |^{2} + m^2) \phi (\vec{p}, t) = 0
+\end{equation*}
+
+Thus we see the dispersion relation is $\omega^{2} = | \vec{p} |^{2} + m^2$. We should seek the solution in form of combination of $a_{p} e^{i \vec{p} \vec{x}}$.
+
+\begin{equation*}
+    \phi (\vec{x}, t) = \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3} \sqrt{2 \omega_{p}}} \ \bigg[a e^{i \vec{p} \vec{x}} + a' e^{- i \vec{p} \vec{x}}\bigg]
+\end{equation*}
+
+In the correspondence with the classical Lagrangian, Hamiltonian and momentum, we can also define Hamiltonian density and "momentum density". Let's denote
+$\dot{\phi} = \partial_{t} \phi$.
+
+\begin{equation*}
+    \begin{gathered}
+        \Pi(\vec{x}, t) = \partialder{\mathcal{L}}{\dot{\phi}} \\
+        \mathcal{H} = \Pi(\vec{x}, t) \cdot \dot{\phi}(\vec{x}, t) - \mathcal{L}
+    \end{gathered}
+\end{equation*}
+
+In the case of the free scalar field \ref{eq:klein_gordon_field} the $\Pi$ is given by
+
+\begin{equation*}
+    \begin{gathered}
+        \Pi(\vec{x}, t) = \partialder{\mathcal{L}}{\dot{\phi}} = \partialder{}{\dot{\phi}} \bigg[\frac{1}{2} \partial_{\mu} \phi \partial^{\mu} \phi - \frac{1}{2} m^{2} \phi^{2}\bigg]
+        = \dot{\phi}
+    \end{gathered}
+\end{equation*}
+
+which we can use the see the form of the Hamiltonian density.
+
+\begin{equation*}
+    \begin{gathered}
+        \mathcal{H} = \dot{\phi}^{2} - \frac{1}{2}\bigg[\partial_{\mu} \phi \partial^{\mu} \phi - m^{2} \phi^{2}\bigg] = 
+        \dot{\phi}^{2} - \frac{1}{2}\bigg[\dot{\phi}^{2} - \big(\nabla \phi\big)^{2} - m^{2} \phi^{2}\bigg] = \\
+        \frac{1}{2}\bigg[\dot{\phi}^{2} + \big(\nabla \phi\big)^{2} + m^{2} \phi^{2}\bigg]
+    \end{gathered}
+\end{equation*}
 
 \section{Second quantization}
 
-TODO: a and a dagger operators
+\paragraph{} In the procedure of second quantization we must start with the representation of the state of the system. We
+will use the \textit{occupation number representation} which counts the number of particles in each state. We
+will write the \textit{vacuum state} as $\ket{0} = \ket{\dots, 0, \dots}$. The general state $\ket{n_{1}, \dots, n_{N}}$
+represents the system with $n_{1}$ particles in the first state, etc. In the analogy with the harmonic oscillator we will
+introduce \textit{creation} and \textit{annihilation} operators $\hat{a}_{\vec{p}}$ and $\hat{a}^{\dagger}_{\vec{p}}$.
+The basic properties are that $\hat{a}_{\vec{p}}$ annihilates the vacuum state and $\hat{a}^{\dagger}_{\vec{p}}$ creates
+the $\ket{\vec{p}}$ state.
 
-In this place I would like to cite a nice recipe from \cite{gifted_amateur} which summarizes
+\begin{equation*}
+    \begin{gathered}
+        \hat{a}_{\vec{p}} \ket{0} = 0 \\
+        \hat{a}^{\dagger}_{\vec{p}} \ket{0} = \ket{\vec{p}}
+    \end{gathered}
+\end{equation*}
+
+The commutation relations are
+
+\begin{equation*}
+    \begin{gathered}
+        \big[\hat{a}_{\vec{p}}, \hat{a}_{\vec{p}'}\big] = \big[\hat{a}_{\vec{p}}^{\dagger}, \hat{a}_{\vec{p}'}^{\dagger}\big] = 0 \\
+        \big[\hat{a}_{\vec{p}}, \hat{a}_{\vec{p}'}^{\dagger}\big] = (2 \pi)^{3} \delta(\vec{p} - \vec{p}')
+    \end{gathered}
+\end{equation*}
+
+\paragraph{} In this place I would like to cite a nice recipe from \cite{gifted_amateur} which summarizes
 the canonical quantization we will use for going from a classical field theory to the quantum 
 field theory:
 
@@ -97,8 +182,116 @@ field theory:
         the normal ordering interpretation.
 \end{itemize}
 
-TODO: quantize klein-gordon field
+Let's rewrite the Klein-Gordon field with the creation and annihilation operator to promote the $\phi$ field to the field operator. We expect
+the $\phi$ and $\Pi$ field to have commutation relation in the same form as they had in the discrete case. But instead of discrete $\delta^{\mu}_{\nu}$ matrix
+we should use the Dirac delta function.
+
+\begin{equation*}
+    \begin{gathered}
+        \big[\phi(x), \phi(x')] = \big[\Pi(x), \Pi(x')] = 0 \\
+        \big[\phi(x), \Pi(x')] = i \delta(x - x')
+    \end{gathered}
+\end{equation*}
+
+The first one will be shown in the next section for the case of a time-like space-time events. The second one can be calculated
+directly using the scalar field obtained in the previous part. But we will replace the constants $a_{p} \to \hat{a}_{p}$, 
+$a'_{p} \to \hat{a}^{\dagger}_{p}$ and check whether the choice is fine by the commutator value.
+
+\begin{equation*}
+    \begin{gathered}
+        \big[\phi(x), \Pi(x')] = \\
+        \bigg[
+            \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3} \sqrt{2 \omega_{p}}} \ \big(\hat{a}_{p} e^{i p x} + \hat{a}^{\dagger}_{p} e^{- i p x}\big),
+            \int_{\mathbb{R}^{3}} \frac{dp'^{3}}{(2 \pi)^{3}} (-i) \sqrt{\frac{\omega_{p'}}{2}} \ \big(\hat{a}_{p'} e^{i p' x'} - \hat{a}^{\dagger}_{p'} e^{- i p' x'}\big)
+        \bigg] = \\
+    \end{gathered}
+\end{equation*}
+
+There is a little trick that we replace $\hat{a}^{\dagger}_{p} e^{- i p x}$ by $\hat{a}^{\dagger}_{-p} e^{i p x}$. After this we will
+use the commutation relation for $\hat{a}_{p}$ and $\hat{a}^{\dagger}_{p}$ to simplify the commutator significantly.
+
+\begin{equation*}
+    \begin{gathered}
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} dp'^{3}}{(2 \pi)^{6}} \frac{(-i)}{2} \sqrt{\frac{\omega_{p'}}{\omega_{p}}}
+        \bigg[
+            \hat{a}_{p} e^{i p x} + \hat{a}^{\dagger}_{-p} e^{i p x},
+            \hat{a}_{p'} e^{i p' x'} - \hat{a}^{\dagger}_{-p'} e^{i p' x'}
+        \bigg] = \\
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} dp'^{3}}{(2 \pi)^{6}} \frac{(-i)}{2} \sqrt{\frac{\omega_{p'}}{\omega_{p}}}
+        \bigg(
+           - \big[ \hat{a}_{p'}, \hat{a}^{\dagger}_{-p} \big]
+           - \big[ \hat{a}_{p}, \hat{a}^{\dagger}_{-p'} \big] 
+        \bigg) e^{i p' x' + i p x}=
+    \end{gathered}
+\end{equation*}
+
+Finally, let's replace the commutators with the delta functions $\big[\hat{a}_{p}, \hat{a}^{\dagger}_{p'} \big] = (2 \pi)^{3} \delta(p - p')$.
+
+\begin{equation*}
+    \begin{gathered}
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} dp'^{3}}{(2 \pi)^{3}} \frac{i}{2} \sqrt{\frac{\omega_{p'}}{\omega_{p}}}
+        \bigg( \delta(p' + p) + \delta(p' + p) \bigg) e^{i p' x' + i p x} = \\
+        \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3}} i e^{- i p(x' - x)} = i \delta(x - x') \\
+    \end{gathered}
+\end{equation*}
 
 \section{Causality problem}
 
-TODO: causality using the klein-gordon field
+Now we shall check whether the new formulation for a free scalar relativistic theory gives the right results about causality.
+The first thing we could do is basically calculate the propagator $\bra{0} \hat{\phi}(x) \hat{\phi}(y) \ket{0}$ and hope the 
+value will be zero outside of the light cone. But, instead we should go back and check whether our condition for the causality
+is still valid in the case of the quantum field theory. We know that if two observables $A$ and $B$ are being measured we can
+decide whether the measurement of $A$ influences the value of $B$ by calculating their commutator $[A, B]$. It is important that
+if $[A, B] \neq 0$ then by measuring $A$ it is possible to decide whether $B$ has bee measured on the system or not and vice 
+versa.
+
+This means that when $[A, B] \neq 0$ the event must be time-like\footnote{
+\textit{Time-like} separated events are inside of the light cone of each other.
+\textit{Space-like} separated events are outside of the light cone of each other and thus the Lorentz transformation of those 
+events does not preserve time ordering.} since they are \textit{correlated}. If $[A, B] = 0$ then there is no information of possible
+measurement $B$ when doing the measurement $A$ and thus the event might be space-like and it doesn't matter we could do a transformation
+into a frame such that we reverse the order of the events.
+
+\begin{definition}
+    \label{df:causality_field_theory}
+    Causality is not preserved if for a space-like separated points $x$, $y$ the field operator doesn't commute with itself in these points, i.e.
+    we can simultaneously measure values which are correlated and the time ordering is not preserved for different frames. Technically for
+    $(x - y) \eta (x - y) < 0$
+
+    \begin{equation}
+        \big[\phi(x), \phi(y)\big] \neq 0
+    \end{equation}
+
+\end{definition}
+
+So to check the causality we will check the commutator $[\phi(x), \phi(y)]$.
+
+\begin{equation*}
+    \begin{gathered}
+        \bigg[\phi(x), \phi(x')\bigg] = \\
+        \bigg[
+            \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3}} \frac{1}{\sqrt{2 \omega_{p}}} \big(\hat{a}_{p} e^{ipx} + \hat{a}^{\dagger}_{p} e^{-ipx}\big),
+            \int_{\mathbb{R}^{3}} \frac{dp'^{3}}{(2 \pi)^{3}} \frac{1}{\sqrt{2 \omega_{p'}}} \big(\hat{a}_{p'} e^{ip'x'} + \hat{a}^{\dagger}_{p'} e^{-ip'x'}\big)
+        \bigg] = \\
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} \ dp'^{2}}{(2 \pi)^{6}} \frac{1}{2 \sqrt{\omega_{p} \omega_{p'}}}
+        \bigg[
+            \hat{a}_{p} e^{ipx} + \hat{a}^{\dagger}_{p} e^{-ipx},
+            \hat{a}_{p'} e^{ip'x'} + \hat{a}^{\dagger}_{p'} e^{-ip'x'}
+        \bigg] = \\
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} \ dp'^{2}}{(2 \pi)^{6}} \frac{1}{2 \sqrt{\omega_{p} \omega_{p'}}}
+        \bigg(
+            \big[\hat{a}_{p} e^{ipx}, \hat{a}^{\dagger}_{p'} e^{-ip'x'}\big] + \big[\hat{a}^{\dagger}_{p} e^{-ipx}, \hat{a}_{p'} e^{ip'x'}\big]
+        \bigg) = \\
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} \ dp'^{2}}{(2 \pi)^{3}} \frac{1}{2 \sqrt{\omega_{p} \omega_{p'}}}
+        \big(\delta(p - p') e^{ipx - ip'x'} - \delta(p - p') e^{-(ipx - ip'x')} \big) = \\
+        \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3}} \frac{1}{2 \omega_{p'}} \big(e^{ip(x - x')} - e^{-ip(x - x')} \big)
+    \end{gathered}
+\end{equation*}
+
+Now, as discussed in \cite{peskin_schroeder}, there is the trick doing the Lorentz transformation of the second term $-(x - y) \to (x - y)$\footnote{Clearly $-\mathbb{I}$ 
+is the desired inversion $x^{\mu} \to -x^{\mu} = (-\delta^{\mu}_{\nu}) x^{\nu}$ and it is a Lorentz transformation because $(-\mathbb{I}) \eta 
+(-\mathbb{I}^{T}) = \eta$. Also we can see geometrically Lorentz transformation is moving the point on the sphere of the hyperboloid outside of the
+light cone but there is no continuous map between the hyperbolas in the future light cone and the past cone.} for case $x -  y$ in the case the $x - y$ is space-like. Since it
+is a Lorentz invariant, terms in the integral cancel each other and thus the commutator is zero. Inside of the light cone, we don't have such a continuous transformation
+because we would have to map a point from the future light cone to the past light cone. Because of that the commutator is non-zero for the time-like separated points which means 
+inside of the light cone events might be causal.

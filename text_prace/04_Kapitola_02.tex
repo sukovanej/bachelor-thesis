@@ -29,7 +29,7 @@ Then we multiply the first equation by $\psi$ and the second one by $\psi^{*}$.
 \end{equation*}
 
 If we subtract these two equations from each other and use the formula for derivative $(a \cdot b)' = a' \cdot b + a \cdot b'$
-we will get a form from which it will be easy to identify the continuity equation $\partialder{\rho}{t} + div \vec{j} = 0$.
+we will get a form from which it will be easy to identify the continuity equation $\partialder{\rho}{t} + \nabla \cdot \vec{j} = 0$.
 
 \begin{equation*}
     i \hbar \partialder{\left|\psi\right|^{2}}{t}  = \psi^{*} \hat{H} \psi - \psi \big(\hat{H} \psi \big)^{*}
@@ -46,7 +46,7 @@ will simplify to
 and the desired form is
 
 \begin{equation*}
-    \partialder{\left|\psi\right|^{2}}{t} + div \bigg[ \frac{\hbar}{2mi} \bigg( \psi \nabla \psi^{*} - \psi^{*} \nabla \psi \bigg) \bigg] = 0
+    \partialder{\left|\psi\right|^{2}}{t} + \nabla \cdot \bigg[ \frac{\hbar}{2mi} \bigg( \psi \nabla \psi^{*} - \psi^{*} \nabla \psi \bigg) \bigg] = 0
 \end{equation*}
 
 \subsection{Klein-Gordon equation}
@@ -428,7 +428,11 @@ Now we should find the saddle points of $S$.
     \end{gathered}
 \end{equation*}
 
-Now we will investigate whether the values $p_{+}$, $p_{-}$ are saddle points by finding the Hessian $\partialdernd{S(p)}{p}$.
+We have to make sure whether the values $p_{+}$, $p_{-}$ are saddle points. Firstly we will check whether they solve the quadratic equation.
+
+Now we find the value of the Hessian $\partialdernd{S(p)}{p}$ in the saddle point $p_{+}$.
+
+TODO: hessian
 
 \begin{equation*}
     \begin{gathered}
@@ -436,7 +440,7 @@ Now we will investigate whether the values $p_{+}$, $p_{-}$ are saddle points by
     \end{gathered}
 \end{equation*}
 
-TODO: why to pick the $+$ solution? Thus we can conclude the amplitude $A_{2}$ is 
+Thus we can conclude the amplitude $A_{2}$ is
 
 \begin{equation}
     \label{eq:a_2_amplitude}
