@@ -239,14 +239,14 @@ and by rewriting the expression above we get
     \begin{gathered}
         (\gamma^{0} \frac{i}{c} \partialder{}{t} + \gamma^{1} \partialder{}{x} + \gamma^{2} \partialder{}{y} + \gamma^{3} \partialder{}{z})
         (\gamma^{0} \frac{i}{c} \partialder{}{t} + \gamma^{1} \partialder{}{x} + \gamma^{2} \partialder{}{y} + \gamma^{3} \partialder{}{z}) = \\
-        \frac{1}{c^{2}} \partialdernd{}{t} (\gamma^{0})^{2} + \partialdernd{}{x} (\gamma^{1})^{2} + \partialdernd{}{y} (\gamma^{2})^{2} + \partialdernd{}{z} (\gamma^{3})^{2} +
+        \frac{1}{c^{2}} \partialdernd{}{t} (\gamma^{0})^{2} + \partialdernd{}{x} (\gamma^{1})^{2} + \partialdernd{}{y} (\gamma^{2})^{2} + \partialdernd{}{z} (\gamma^{3})^{2} + \\
         \partialder{}{t} \partialder{}{x} (\gamma^{0} \gamma^{1} + \gamma^{1} \gamma^{0}) + \partialder{}{t} \partialder{}{y} (\gamma^{0} \gamma^{2} + \gamma^{2} \gamma^{0}) \dots
     \end{gathered}
 \end{equation*}
 
 We see the expansion gave us the conditions for the $\gamma$'s, $(\gamma^{0})^{2} = 1$, $(\gamma^{i})^{2} = -1$ and $\gamma^{i} \gamma^{j} + \gamma^{j} \gamma^{i} = 0$
-for $i, j \in \{1, 2, 3\}$. To satisfy all these conditions $\gamma^{\mu}$ is clearly not a number. When Dirac was deriving the equation
-he immediately recognized the gammas to be 4x4 matrices.
+for $i \neq j \land i, j \in \{1, 2, 3\}$. To satisfy all these conditions $\gamma^{\mu}$ is clearly not a number. When Dirac was deriving the equation
+he immediately recognized the gammas to be 4x4 matrices. One example of such a set of matrices is the Dirac representation.
 
 \begin{equation*}
     \begin{gathered}
@@ -256,7 +256,7 @@ he immediately recognized the gammas to be 4x4 matrices.
           0 & 1 & 0 & 0 \\
           0 & 0 & -1 & 0 \\
           0 & 0 & 0 & -1 \\
-         \end{pmatrix} \\
+         \end{pmatrix}
         \gamma^{1} = 
          \begin{pmatrix}
           0 & 0 & 0 & 1 \\
@@ -270,7 +270,7 @@ he immediately recognized the gammas to be 4x4 matrices.
           0 & 0 & i & 0 \\
           0 & i & 0 & 0 \\
           -i & 0 & 0 & 0 \\
-         \end{pmatrix} \\
+         \end{pmatrix}
         \gamma^{3} = 
          \begin{pmatrix}
           0 & 0 & 1 & 0 \\
@@ -281,7 +281,75 @@ he immediately recognized the gammas to be 4x4 matrices.
     \end{gathered}
 \end{equation*}
 
-TODO: gamma matrices
+Let's check these matrices work correctly with all the equations $(\gamma^{0})^{2} = 1$, $(\gamma^{i})^{2} = -1$ and $\gamma^{i} \gamma^{j} + \gamma^{j} \gamma^{i} = 0$.
+We can also notice that last three matrices are composed from sub-matrices of the from of Pauli's matrices.
+
+\begin{equation*}
+    \begin{gathered}
+        \sigma^{1} = 
+         \begin{pmatrix}
+          0 & 1 \\
+          1 & 0 \\
+         \end{pmatrix}, \quad
+        \sigma^{2} = 
+         \begin{pmatrix}
+          0 & -i \\
+          i & 0 \\
+         \end{pmatrix}, \quad
+        \sigma^{3} = 
+         \begin{pmatrix}
+          1 & 0 \\
+          0 & -1 \\
+         \end{pmatrix}
+    \end{gathered}
+\end{equation*}
+
+For Pauli matrices there is the same relation we found for the gamma matrices $\sigma^{i} \sigma^{j} + \sigma^{j} \sigma^{i} = 2 
+\delta_{ij} \mathbb{I}_{2 \cross 2}$. Without knowing the exact form of Pauli matrices and taking only the anti-commutation relation
+we can prove the defining property holds if we rewrite the gamma matrices using a compact form with sub-matrices.
+
+\begin{equation*}
+    \begin{gathered}
+        \gamma^{i} = 
+        \begin{pmatrix}
+             0_{2 \cross 2} & \sigma^{i} \\
+              - \sigma^{i} & 0_{2 \cross 2} \\
+        \end{pmatrix} \quad \implies \\
+        \gamma^{i} \gamma^{j} =
+        \begin{pmatrix}
+             0_{2 \cross 2} & \sigma^{i} \\
+              - \sigma^{i} & 0_{2 \cross 2} \\
+        \end{pmatrix}
+        \begin{pmatrix}
+             0_{2 \cross 2} & \sigma^{j} \\
+              - \sigma^{j} & 0_{2 \cross 2} \\
+        \end{pmatrix} =
+        - \begin{pmatrix}
+             \sigma^{i} \sigma^{j} & 0_{2 \cross 2} \\
+             0_{2 \cross 2} & \sigma^{i} \sigma^{j}
+        \end{pmatrix} = 
+    \end{gathered}
+\end{equation*}
+
+Thus we can write $\gamma^{i} \gamma^{j} + \gamma^{j} \gamma^{i} = \{\gamma^{i}, \gamma^{j}\}$ using $\{\sigma^{i}, \sigma^{j}\}$ terms.
+
+\begin{equation*}
+    \begin{gathered}
+        \{\gamma^{i}, \gamma^{j}\} = - 
+        \begin{pmatrix}
+             \sigma^{i} \sigma^{j} & 0_{2 \cross 2} \\
+             0_{2 \cross 2} & \sigma^{i} \sigma^{j}
+        \end{pmatrix} - 
+        \begin{pmatrix}
+             \sigma^{j} \sigma^{i} & 0_{2 \cross 2} \\
+             0_{2 \cross 2} & \sigma^{j} \sigma^{i}
+        \end{pmatrix} = 
+        - \begin{pmatrix}
+            \{\sigma^{i}, \sigma^{j}\} & 0_{2 \cross 2} \\
+             0_{2 \cross 2} & \{\sigma^{i},  \sigma^{j}\}
+        \end{pmatrix} = - 2 \delta_{ij} \mathbb{I}_{4 \cross 4}
+    \end{gathered}
+\end{equation*}
 
 The final famous form of the Dirac equation is
 
