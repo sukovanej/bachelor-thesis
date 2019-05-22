@@ -413,10 +413,10 @@ particle. The problem of the numerical approach is we have to deal with the non-
 sure the integral is non-zero in the region outside of the light cone we will investigate the integral analytically using the 
 \textit{steepest descent method}. Let $S(p)$ be the exponent part of the integrated function and $\Delta x = x_{1} - x_{0}$. During
 the computation we will assume $(\Delta x)^{2} > (ct')^{2}$ to take into account that we investigate the region where the amplitude
-should be zero.
+should be zero. Also for the calculation we will wick rotate the time using $t' = t_{M} = - i t_{E}$.
 
 \begin{equation*}
-    S(p) = - \frac{i}{\hbar} c \sqrt{p^{2} + (mc)^{2}} t' + \frac{i}{\hbar}p \Delta x
+    S(p) = - {\hbar} c \sqrt{p^{2} + (mc)^{2}} t_{E} + \frac{i}{\hbar}p \Delta x
 \end{equation*}
 
 Now we should find the saddle points of $S$.
@@ -424,27 +424,33 @@ Now we should find the saddle points of $S$.
 \begin{equation*}
     \begin{gathered}
         \partialder{S(p)}{p} = 0 \\
-        p^{2} = \frac{(m c \Delta x)^{2}}{(c t')^{2} - (\Delta x)^{2}}, \ p_{\pm} = \pm \frac{i m c \Delta x}{\sqrt{(\Delta x)^{2} - (c t')^{2}}}
+        p^{2} = \frac{(m c \Delta x)^{2}}{(c t_{E})^{2} + (\Delta x)^{2}}, \ p_{\pm} = \pm \frac{i m c \Delta x}{\sqrt{(\Delta x)^{2} + (c t_{E})^{2}}}
     \end{gathered}
 \end{equation*}
 
-We have to make sure whether the values $p_{+}$, $p_{-}$ are saddle points. Firstly we will check whether they solve the quadratic equation.
-
-Now we find the value of the Hessian $\partialdernd{S(p)}{p}$ in the saddle point $p_{+}$.
-
-TODO: hessian
+We have to make sure whether the values $p_{+}$, $p_{-}$ are saddle points. Let's plug the solution back into $\partialder{S(p)}{p}$.
 
 \begin{equation*}
     \begin{gathered}
-        \partialdernd{S(p)}{p} = \pm i \frac{\big((\Delta x)^{2} - (c t')^{2}\big)^{\frac{3}{2}}}{m (ct')^{2}}
+        \partialder{S(p)}{p} \bigg|_{p = p_{\pm}} = - c \frac{\pm i \Delta x m c t_{E}}{\sqrt{(c t_{E})^{2} + (\Delta x)^{2}}} 
+        \cdot \sqrt{\frac{(c t_{E})^{2} + (\Delta x)^{2}}{(mc^{2} t_{E})^{2}}} + i \Delta x = \mp i \Delta x + i \Delta x
     \end{gathered}
 \end{equation*}
 
-Thus we can conclude the amplitude $A_{2}$ is
+From this result we can conclude the only point satifying the equation $\partialder{S(p)}{p} = 0$ is $p_{+}$. Now we find the value of the 
+Hessian $\partialdernd{S(p)}{p}$ in the saddle point $p_{+}$.
+
+\begin{equation*}
+    \begin{gathered}
+        H = \partialdernd{S(p)}{p} \bigg|_{p = p_{+}} = \frac{\big( (ct_{E})^{2} + (\Delta x)^{2} \big)^{\frac{3}{2}}}{c^{3} m t^{2}}
+    \end{gathered}
+\end{equation*}
+
+After ratating the time back $t_{E} \to t_{M} = t'$ we can conclude the amplitude $A_{2}$ is
 
 \begin{equation}
     \label{eq:a_2_amplitude}
-    A_{2} \sim e^{S(p_{+})} = e^{- \frac{mc}{\hbar} \sqrt{(\Delta x)^{2} - (ct')^{2}}}
+    A_{2} \approx e^{S(p_{+})} \sqrt{\frac{2 \pi}{- H}} = e^{- \frac{mc}{\hbar} \sqrt{(\Delta x)^{2} - (ct')^{2}}} \sqrt{\frac{2 \pi c^{3} m t^{2}}{\big((\Delta x)^{2} - (ct')^{2} \big)^{\frac{3}{2}}}}
 \end{equation}
 
 The expression \ref{eq:a_2_amplitude} is non-zero for an arbitrary choice of $\Delta x$ and $t'$ thus it is
