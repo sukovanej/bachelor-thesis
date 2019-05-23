@@ -98,9 +98,9 @@ and then study some consequences.
 It is convenient to use $[\hat{q}_{i}, \hat{p}_{j}] = i \hbar \delta_{ij}$ and \ref{eq:dirac_quantization_2} to show
 that $Q(q_{i}) = \hat{q}_{i}$. Firstly, we will rewrite $q$ using the Poisson bracket. The obvious choice is $q_{i} = \{\frac{q_{i}^{2}}{2}, p_{i}\}$.
 And from the definition \ref{eq:dirac_quantization_2} we see that $Q(\{\frac{q_{i}^{2}}{2}, p_{i}\}) = \frac{1}{i \hbar}[\frac{\hat{q}_{i}^{2}}{2}, \hat{p}_{i}]$.
-Using the identity for commutation relation $[AB, C] = [A, B]C + B[A, C]$\footnote{Proof by directly using the definition of 
-the commutator: $[AB, C] = ABC - CAB = ABC - ACB + ACB - CAB = A [B, C] + [A, C] B$} the commutator on the right-hand side can
-be written as follows.
+Using the identity for commutation relation $[AB, C] = [A, B]C + B[A, C]$ the commutator on the right-hand side can
+be written as follows.\footnote{Proof by directly using the definition of 
+the commutator: $[AB, C] = ABC - CAB = ABC - ACB + ACB - CAB = A [B, C] + [A, C] B$}
 
 \begin{equation*}
     Q(x_{i}) = \frac{1}{i \hbar}\bigg[\frac{\hat{x}_{i}^{2}}{2}, \hat{p}_{i}\bigg] = 
@@ -118,7 +118,7 @@ be written as follows.
 
 \paragraph{Groenewold theorem} Although the procedure discussed so far might look promising it has a big problem.
 If we try to find an operator corresponding to a polynomial of $q$ and $p$, $P(q, p)$, we seek a Poisson
-bracket $\{P_{1}(q, p), P_{2}(q, p)\} = P(p, q)$. The problem is the Poisson bracket for the $P(q, p)$ does
+bracket $\{P_{1}(q, p), P_{2}(q, p)\} = P(p, q)$. The problem is $P_{1}(q, p), P_{2}(q, p)$ don't
 not have to be unique. Thus we may find two different expressions $\{P_{1}(q, p), P_{2}(q, p)\}$ and $\{P_{1}'(q, p), P_{2}'(q, p)\}$
 for a single $P(q, p)$ and we can end up with two different commutators $[Q(P_{1}), Q(P_{2})] \neq [Q(P'_{1}), Q(P'_{2})]$.
 This reasoning was done by Groenewold to proof that the quantization postulated by \ref{df:o_map} actually doesn't
@@ -135,7 +135,7 @@ exist! The proof comes in the form of a counterexample.
         \bigg\{x^{2} p, x p\bigg\} = \bigg((2 x p) (x) - (p) (x^{2}))\bigg) = x^{2} p \\
     \end{equation}
 
-    now we should find the corresponding operators.
+    Now we should find the corresponding operators.
 
     \begin{equation*}
         \begin{gathered}
@@ -144,9 +144,10 @@ exist! The proof comes in the form of a counterexample.
         \end{gathered}
     \end{equation*}
 
-    Let's use $Q (xp) = \frac{1}{2}\big(\hat{x} \hat{p} + \hat{p} \hat{x}\big)$\footnote{Since $xp = \big\{\frac{x^{2}}{2}, \frac{p^{2}}{2} \big\}$, $Q(xp) = 
-    \big[\frac{x^{2}}{2}, \frac{p^{2}}{2} \big] = \frac{1}{4} \big(\hat{x} [\hat{x}, \hat{p}^{2}] + [\hat{x}, \hat{p}^{2}] \hat{p}\big) = \frac{1}{2} (\hat{x} \hat{p} + \hat{p} \hat{x})$} and
-    the last calculation to check the result of the second expression.
+    Let's use $Q (xp) = \frac{1}{2}\big(\hat{x} \hat{p} + \hat{p} \hat{x}\big)$ and the last calculation to check the result
+    of the second expression.\footnote{Since $xp = \big\{\frac{x^{2}}{2}, \frac{p^{2}}{2} \big\}$, $Q(xp) = \big[\frac{x^{2}}{2}, 
+    \frac{p^{2}}{2} \big] = \frac{1}{4} \big(\hat{x} [\hat{x}, \hat{p}^{2}] + [\hat{x}, \hat{p}^{2}] \hat{p}\big) = \frac{1}{2}
+    (\hat{x} \hat{p} + \hat{p} \hat{x})$}
 
     \begin{equation*}
         \begin{gathered}

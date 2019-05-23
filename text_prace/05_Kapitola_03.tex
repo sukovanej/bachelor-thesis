@@ -84,16 +84,16 @@ equation from the first chapter!
 Let's calculate the Fourier transformation of $\phi$ and the Klein-Gordon equation.
 
 \begin{equation}
-    \phi (\vec{x}, t) = \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{\frac{3}{2}}} \ e^{i \vec{p} \vec{x}} \ \phi (\vec{p}, t)
+    \phi (\vec{x}, t) = \int_{\mathbb{R}^{3}} \frac{d^{3}p}{(2 \pi)^{\frac{3}{2}}} \ e^{i \vec{p} \vec{x}} \ \phi (\vec{p}, t)
 \end{equation}
 
 The equation \ref{eq:klein_gordon_field_equation} then becomes
 
 \begin{equation*}
     \begin{gathered}
-        (\partial^{\mu} \partial_{\mu} + m^2) \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{\frac{3}{2}}} \ e^{i \vec{p} \vec{x}} \ \phi (\vec{p}, t) = 0 \\
-        \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{\frac{3}{2}}} \ (\partial_{t}^{2} - \Delta + m^2) \ e^{i \vec{p} \vec{x}} \ \phi (\vec{p}, t) = 0 \\
-        \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{\frac{3}{2}}} \ (\partial_{t}^{2} + | \vec{p} |^{2} + m^2) \ e^{i \vec{p} \vec{x}} \ \phi (\vec{p}, t) = 0
+        (\partial^{\mu} \partial_{\mu} + m^2) \int_{\mathbb{R}^{3}} \frac{d^{3}p}{(2 \pi)^{\frac{3}{2}}} \ e^{i \vec{p} \vec{x}} \ \phi (\vec{p}, t) = 0 \\
+        \int_{\mathbb{R}^{3}} \frac{d^{3}p}{(2 \pi)^{\frac{3}{2}}} \ (\partial_{t}^{2} - \Delta + m^2) \ e^{i \vec{p} \vec{x}} \ \phi (\vec{p}, t) = 0 \\
+        \int_{\mathbb{R}^{3}} \frac{d^{3}p}{(2 \pi)^{\frac{3}{2}}} \ (\partial_{t}^{2} + | \vec{p} |^{2} + m^2) \ e^{i \vec{p} \vec{x}} \ \phi (\vec{p}, t) = 0
     \end{gathered}
 \end{equation*}
 
@@ -107,7 +107,7 @@ Thus we see the dispersion relation is $E^{2} = | \vec{p} |^{2} + m^2$. We shoul
 and $e^{- i (E t - \vec{p} \vec{x})}$.
 
 \begin{equation*}
-    \phi (\vec{x}, t) = \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{\frac{3}{2}} \sqrt{2 E_{p}}} \ \bigg[a e^{i (p_{0} t - \vec{p} \vec{x})} + a' e^{- i (p_{0} t - \vec{p} \vec{x})}\bigg]
+    \phi (\vec{x}, t) = \int_{\mathbb{R}^{3}} \frac{d^{3}p}{(2 \pi)^{\frac{3}{2}} \sqrt{2 E_{p}}} \ \bigg[a e^{i (p_{0} t - \vec{p} \vec{x})} + a' e^{- i (p_{0} t - \vec{p} \vec{x})}\bigg]
 \end{equation*}
 
 In the correspondence with the classical Lagrangian, Hamiltonian and momentum, we can also define Hamiltonian density and "momentum density". Let's 
@@ -200,8 +200,8 @@ $a'_{p} \to \hat{a}^{\dagger}_{p}$ and check whether the choice is fine by the c
     \begin{gathered}
         \big[\phi(x), \Pi(x')] = \\
         \bigg[
-            \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{\frac{3}{2}} \sqrt{2 E_{p}}} \ \big(\hat{a}_{p} e^{i p x} + \hat{a}^{\dagger}_{p} e^{- i p x}\big),
-            \int_{\mathbb{R}^{3}} \frac{dp'^{3}}{(2 \pi)^{\frac{3}{2}}} (-i) \sqrt{\frac{E_{p'}}{2}} \ \big(\hat{a}_{p'} e^{i p' x'} - \hat{a}^{\dagger}_{p'} e^{- i p' x'}\big)
+            \int_{\mathbb{R}^{3}} \frac{d^{3}p}{(2 \pi)^{\frac{3}{2}} \sqrt{2 E_{p}}} \ \big(\hat{a}_{p} e^{i p x} + \hat{a}^{\dagger}_{p} e^{- i p x}\big),
+            \int_{\mathbb{R}^{3}} \frac{d^{3}p'}{(2 \pi)^{\frac{3}{2}}} (-i) \sqrt{\frac{E_{p'}}{2}} \ \big(\hat{a}_{p'} e^{i p' x'} - \hat{a}^{\dagger}_{p'} e^{- i p' x'}\big)
         \bigg] = \\
     \end{gathered}
 \end{equation*}
@@ -211,12 +211,12 @@ use the commutation relation for $\hat{a}_{p}$ and $\hat{a}^{\dagger}_{p}$ to si
 
 \begin{equation*}
     \begin{gathered}
-        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} dp'^{3}}{(2 \pi)^{3}} \frac{(-i)}{2} \sqrt{\frac{E_{p'}}{E_{p}}}
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{d^{3}p d^{3}p'}{(2 \pi)^{3}} \frac{(-i)}{2} \sqrt{\frac{E_{p'}}{E_{p}}}
         \bigg[
             \hat{a}_{p} e^{i p x} + \hat{a}^{\dagger}_{-p} e^{i p x},
             \hat{a}_{p'} e^{i p' x'} - \hat{a}^{\dagger}_{-p'} e^{i p' x'}
         \bigg] = \\
-        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} dp'^{3}}{(2 \pi)^{3}} \frac{(-i)}{2} \sqrt{\frac{E_{p'}}{E_{p}}}
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{d^{3}p d^{3}p'}{(2 \pi)^{3}} \frac{(-i)}{2} \sqrt{\frac{E_{p'}}{E_{p}}}
         \bigg(
            - \big[ \hat{a}_{p'}, \hat{a}^{\dagger}_{-p} \big]
            - \big[ \hat{a}_{p}, \hat{a}^{\dagger}_{-p'} \big] 
@@ -224,18 +224,19 @@ use the commutation relation for $\hat{a}_{p}$ and $\hat{a}^{\dagger}_{p}$ to si
     \end{gathered}
 \end{equation*}
 
-Finally, let's replace the commutators with the delta functions $\big[\hat{a}_{p}, \hat{a}^{\dagger}_{p'} \big] = (2 \pi)^{\frac{3}{2}} \delta(p - p')$.
+Finally, let's replace the commutators with the delta functions $\big[\hat{a}_{p}, \hat{a}^{\dagger}_{p'} \big] = (2 \pi)^{\frac{3}{2}}
+\delta^{(3)}(p - p')$.
 
 \begin{equation*}
     \begin{gathered}
-        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} dp'^{3}}{(2 \pi)^{\frac{3}{2}}} \frac{i}{2} \sqrt{\frac{E_{p'}}{E_{p}}}
-        \bigg( \delta(p' + p) + \delta(p' + p) \bigg) e^{i p' x' + i p x} = \\
-        \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{\frac{3}{2}}} i e^{- i p(x' - x)} = i \delta(x - x') \\
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{d^{3}p d^{3}p'}{(2 \pi)^{\frac{3}{2}}} \frac{i}{2} \sqrt{\frac{E_{p'}}{E_{p}}}
+        \bigg( \delta^{(3)}(p' + p) + \delta^{(3)}(p' + p) \bigg) e^{i p' x' + i p x} = \\
+        \int_{\mathbb{R}^{3}} \frac{d^{3}p}{(2 \pi)^{\frac{3}{2}}} i e^{- i p(x' - x)} = i \delta^{(3)}(x - x') \\
     \end{gathered}
 \end{equation*}
 
 It is also worth discussing the factor $(2 E_{p})^{\frac{1}{2}}$ in the $\phi$. The idea is
-to use the dispersion relation $p = (p_{0}, \vec{p}) \implies p^{2} - m^2 = 0$ to solve the problem that $dp^{3}$ is
+to use the dispersion relation $p = (p_{0}, \vec{p}) \implies p^{2} - m^2 = 0$ to solve the problem that $d^{3}p$ is
 not Lorentz invariant. We choose $dp^{4} \delta(p^{2} - m^2) \theta(p_{0})$ as the measure which takes into account 
 the \textit{mass shell condition} introduced by the dispersion relation. Using the identity
 
@@ -248,13 +249,13 @@ for $E_{p} = \sqrt{\vec{p}^{2} + m^{2}}$ we can show $\delta(p^{2} - m^2) \theta
 operator is expressed as 
 
 \begin{equation*}
-    \mathbb{I}_{p} = \int_{\mathbb{R}} \frac{dp^{3}}{(2 \pi)^{3} 2 E_{p}} \ket{p} \bra{p}
+    \mathbb{I}_{p} = \int_{\mathbb{R}} \frac{d^{3}p}{(2 \pi)^{3} 2 E_{p}} \ket{p} \bra{p}
 \end{equation*}
 
-and if we try to calculate $\bra{p} \mathbb{I} \ket{q}$ we expect this to be a Dirac delta $\delta(p - q)$.
+and if we try to calculate $\bra{p} \mathbb{I} \ket{q}$ we expect this to be a Dirac delta $\delta^{(3)}(p - q)$.
 
 \begin{equation*}
-    \bra{p} \mathbb{I}_{p} \ket{q} = \int_{\mathbb{R}} \frac{dp^{3}}{(2 \pi)^{3} 2 E_{p}} \bra{p} \ket{p} \bra{p}\ket{q} = \frac{1}{(2 \pi)^{3} 2 E_{p}} \delta(p - q)
+    \bra{p} \mathbb{I}_{p} \ket{q} = \int_{\mathbb{R}} \frac{d^{3}p}{(2 \pi)^{3} 2 E_{p}} \bra{p} \ket{p} \bra{p}\ket{q} = \frac{1}{(2 \pi)^{3} 2 E_{p}} \delta^{(3)}(p - q)
 \end{equation*}
 
 So we will rather normalize the momentum state $\ket{\tilde{p}} = (2 \pi)^{\frac{3}{2}} (2 E_{p})^{\frac{1}{2}} \ket{p}$ and
@@ -262,8 +263,8 @@ the annihilation and creation operators $\ket{\tilde{p}} = \tilde{a}^{\dagger} \
 The field operator using the measure and new $\tilde{a}$ operators is as follows.
 
 \begin{equation*}
-    \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3} 2 E_{p}} \ \big(\tilde{a}_{p} e^{i p x} + \tilde{a}^{\dagger}_{p} e^{- i p x}\big) = 
-    \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{\frac{3}{2}} (2 E_{p})^{\frac{1}{2}}} \ \big(\hat{a}_{p} e^{i p x} + \hat{a}^{\dagger}_{p} e^{- i p x}\big)
+    \int_{\mathbb{R}^{3}} \frac{d^{3}p}{(2 \pi)^{3} 2 E_{p}} \ \big(\tilde{a}_{p} e^{i p x} + \tilde{a}^{\dagger}_{p} e^{- i p x}\big) = 
+    \int_{\mathbb{R}^{3}} \frac{d^{3}p}{(2 \pi)^{\frac{3}{2}} (2 E_{p})^{\frac{1}{2}}} \ \big(\hat{a}_{p} e^{i p x} + \hat{a}^{\dagger}_{p} e^{- i p x}\big)
 \end{equation*}
 
 \section{Causality problem}
@@ -273,7 +274,7 @@ The first thing we could do is basically calculate the propagator $\bra{0} \hat{
 value will be zero outside of the light cone. But, instead, we should go back and check whether our condition for the causality
 is still valid in the case of the quantum field theory. We know that if two observables $A$ and $B$ are being measured we can
 decide whether the measurement of $A$ influences the value of $B$ by calculating their commutator $[A, B]$. It is important that
-if $[A, B] \neq 0$ then by measuring $A$ it is possible to decide whether $B$ has bee measured on the system or not and vice 
+if $[A, B] \neq 0$ then by measuring $A$ it is possible to decide whether $B$ has been measured on the system or not and vice 
 versa.
 
 This means that when $[A, B] \neq 0$ the event must be time-like\footnote{
@@ -301,28 +302,28 @@ So to check the causality we will check the commutator $[\phi(x), \phi(y)]$.
     \begin{gathered}
         \bigg[\phi(x), \phi(x')\bigg] = \\
         \bigg[
-            \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{\frac{3}{2}}} \frac{1}{\sqrt{2 E_{p}}} \big(\hat{a}_{p} e^{ipx} + \hat{a}^{\dagger}_{p} e^{-ipx}\big),
-            \int_{\mathbb{R}^{3}} \frac{dp'^{3}}{(2 \pi)^{\frac{3}{2}}} \frac{1}{\sqrt{2 E_{p'}}} \big(\hat{a}_{p'} e^{ip'x'} + \hat{a}^{\dagger}_{p'} e^{-ip'x'}\big)
+            \int_{\mathbb{R}^{3}} \frac{d^{3}p}{(2 \pi)^{\frac{3}{2}}} \frac{1}{\sqrt{2 E_{p}}} \big(\hat{a}_{p} e^{ipx} + \hat{a}^{\dagger}_{p} e^{-ipx}\big),
+            \int_{\mathbb{R}^{3}} \frac{d^{3}p'}{(2 \pi)^{\frac{3}{2}}} \frac{1}{\sqrt{2 E_{p'}}} \big(\hat{a}_{p'} e^{ip'x'} + \hat{a}^{\dagger}_{p'} e^{-ip'x'}\big)
         \bigg] = \\
-        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} \ dp'^{2}}{(2 \pi)^{3}} \frac{1}{2 \sqrt{E_{p} E_{p'}}}
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{d^{3}p \ d^{3}p'}{(2 \pi)^{3}} \frac{1}{2 \sqrt{E_{p} E_{p'}}}
         \bigg[
             \hat{a}_{p} e^{ipx} + \hat{a}^{\dagger}_{p} e^{-ipx},
             \hat{a}_{p'} e^{ip'x'} + \hat{a}^{\dagger}_{p'} e^{-ip'x'}
         \bigg] = \\
-        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} \ dp'^{2}}{(2 \pi)^{3}} \frac{1}{2 \sqrt{E_{p} E_{p'}}}
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{d^{3}p \ d^{3}p'}{(2 \pi)^{3}} \frac{1}{2 \sqrt{E_{p} E_{p'}}}
         \bigg(
             \big[\hat{a}_{p} e^{ipx}, \hat{a}^{\dagger}_{p'} e^{-ip'x'}\big] + \big[\hat{a}^{\dagger}_{p} e^{-ipx}, \hat{a}_{p'} e^{ip'x'}\big]
         \bigg) = \\
-        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} \ dp'^{2}}{(2 \pi)^{\frac{3}{2}}} \frac{1}{2 \sqrt{E_{p} E_{p'}}}
-        \big(\delta(p - p') e^{ipx - ip'x'} - \delta(p - p') e^{-(ipx - ip'x')} \big) = \\
-        \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{\frac{3}{2}}} \frac{1}{2 E_{p'}} \big(e^{ip(x - x')} - e^{-ip(x - x')} \big)
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{d^{3}p \ d^{3}p'}{(2 \pi)^{\frac{3}{2}}} \frac{1}{2 \sqrt{E_{p} E_{p'}}}
+        \big(\delta^{(3)}(p - p') e^{ipx - ip'x'} - \delta^{(3)}(p - p') e^{-(ipx - ip'x')} \big) = \\
+        \int_{\mathbb{R}^{3}} \frac{d^{3}p}{(2 \pi)^{\frac{3}{2}}} \frac{1}{2 E_{p'}} \big(e^{ip(x - x')} - e^{-ip(x - x')} \big)
     \end{gathered}
 \end{equation*}
 
-Now, as discussed in \cite{peskin_schroeder}, there is the trick doing the Lorentz transformation of the second term $-(x - x') \to (x - x')$\footnote{Clearly $-\mathbb{I}$ 
+Now, as discussed in \cite{peskin_schroeder}, there is the trick doing the Lorentz transformation of the second term $-(x - x') \to (x - x')$ for the case\footnote{Clearly $-\mathbb{I}$ 
 is the desired inversion $x^{\mu} \to -x^{\mu} = (-\delta^{\mu}_{\nu}) x^{\nu}$ and it is a Lorentz transformation because $(-\mathbb{I}) \eta 
 (-\mathbb{I}^{T}) = \eta$. Also we can see geometrically Lorentz transformation is moving the point on the sphere of the hyperboloid outside of the
-light cone but there is no continuous map between the hyperbolas in the future light cone and the past cone.} for the case the $x - x'$ is space-like. Since it
+light cone but there is no continuous map between the hyperbolas in the future light cone and the past cone.} the $x - x'$ is space-like. Since it
 is a Lorentz invariant, terms in the integral cancel each other and thus the commutator is zero. Inside of the light cone, we don't have such a continuous transformation
 because we would have to map a point from the future light cone to the past light cone. Because of that, the commutator is non-zero for the time-like separated points which means 
 inside of the light cone events might be causal.
