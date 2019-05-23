@@ -2,9 +2,10 @@
 
 In this chapter we will introduce the basics of the canonical quantization. We will start by introducing the
 Poisson brackets and it's basic properties. Then we will define a quantization map $Q$ which maps the
-classical dynamical variable into the operator within a Hilbert space. Using this process we will then
+classical dynamical variable into the operator within a Hilbert space. Using the Groenewold's theorem we
+will show the map actually doesn't exist so we will end up with the naive quantization. Using this process we will then
 formulate the Klein-Gordon equation, an equation for describing a spin-less particle in the quantum mechanics.
-We will see that this equation is second order both in time and space which will result some obstacles. With the
+We will see that this equation is second order both in time and space which will result in some obstacles. With the
 hope of solving this issue we will construct the Dirac equation which describes the $\frac{1}{2}$-spin particle.
 
 \section{Canonical quantization}
@@ -145,7 +146,7 @@ exist! The proof comes in a form of a counterexample.
 
     Let's use $Q (xp) = \frac{1}{2}\big(\hat{x} \hat{p} + \hat{p} \hat{x}\big)$\footnote{Since $xp = \big\{\frac{x^{2}}{2}, \frac{p^{2}}{2} \big\}$, $Q(xp) = 
     \big[\frac{x^{2}}{2}, \frac{p^{2}}{2} \big] = \frac{1}{4} \big(\hat{x} [\hat{x}, \hat{p}^{2}] + [\hat{x}, \hat{p}^{2}] \hat{p}\big) = \frac{1}{2} (\hat{x} \hat{p} + \hat{p} \hat{x})$} and
-    the very last calculation to check the result of the second expression.
+    the last calculation to check the result of the second expression.
 
     \begin{equation*}
         \begin{gathered}
@@ -282,7 +283,7 @@ he immediately recognized the gammas to be 4x4 matrices. One example of such a s
 \end{equation*}
 
 Let's check these matrices work correctly with all the equations $(\gamma^{0})^{2} = 1$, $(\gamma^{i})^{2} = -1$ and $\gamma^{i} \gamma^{j} + \gamma^{j} \gamma^{i} = 0$.
-We can also notice that last three matrices are composed from sub-matrices of the from of Pauli's matrices.
+We can also notice that last three matrices are composed from sub-matrices having the form of Pauli matrices $\sigma^{i}$.
 
 \begin{equation*}
     \begin{gathered}

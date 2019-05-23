@@ -2,7 +2,7 @@
 
 In the first chapter we tried to make a smooth transition from the "classical" quantum mechanics
 to the relativistic one by considering the rules of the \textit{first quantization}. Our motivation
-was to use preserve the notations from the old theory, i.e. remain with the wave function being the
+was to use the notations from the old theory, i.e. remain with the wave function being the
 mathematical object representing the physical state and operators corresponding to the dynamical 
 variables. As was shown in the second chapter using this approach we must deal a number of
 various conceptual problems like negative probabilities or the break of causality. 
@@ -55,8 +55,6 @@ by the equation
     \partialder{\mathcal{L}}{\phi} - d_{\mu} \bigg[ \partialder{\mathcal{L}}{(\partial_{\mu} \phi)} \bigg] = 0
 \end{equation}
 
-TODO: show the lorentz invariance of the euler legrange eq
-
 Now we will investigate a simple example of the Lagrangian which will come in use later. Also, since it is a standard in
 the literature to use the \textit{natural units} we will also set $\hbar = 1$ and $c = 1$ and if needed the constants
 can be retrieved using the dimensional analysis.
@@ -83,7 +81,7 @@ equation from the first chapter!
     \partial^{\mu} \partial_{\mu} \phi + m^2 \phi = 0
 \end{equation}
 
-We will find a solution of this equation using the Fourier transformation of $\phi$.
+Let's calculate the Fourier transformation of $\phi$ and the Klein-Gordon equation.
 
 \begin{equation}
     \phi (\vec{x}, t) = \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3}} \ e^{i \vec{p} \vec{x}} \ \phi (\vec{p}, t)
@@ -105,14 +103,15 @@ which results in the equation
     (\partial_{t}^{2} + | \vec{p} |^{2} + m^2) \phi (\vec{p}, t) = 0
 \end{equation*}
 
-Thus we see the dispersion relation is $\omega^{2} = | \vec{p} |^{2} + m^2$. We should seek the solution in form of combination of $a_{p} e^{i \vec{p} \vec{x}}$.
+Thus we see the dispersion relation is $E^{2} = | \vec{p} |^{2} + m^2$. We should seek the solution in form of combination of $e^{i (E t - \vec{p} \vec{x})}$
+and $e^{- i (E t - \vec{p} \vec{x})}$.
 
 \begin{equation*}
-    \phi (\vec{x}, t) = \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3} \sqrt{2 \omega_{p}}} \ \bigg[a e^{i \vec{p} \vec{x}} + a' e^{- i \vec{p} \vec{x}}\bigg]
+    \phi (\vec{x}, t) = \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3} \sqrt{2 E_{p}}} \ \bigg[a e^{i (p_{0} t - \vec{p} \vec{x})} + a' e^{- i (p_{0} t - \vec{p} \vec{x})}\bigg]
 \end{equation*}
 
-In the correspondence with the classical Lagrangian, Hamiltonian and momentum, we can also define Hamiltonian density and "momentum density". Let's denote
-$\dot{\phi} = \partial_{t} \phi$.
+In the correspondence with the classical Lagrangian, Hamiltonian and momentum, we can also define Hamiltonian density and "momentum density". Let's 
+denote $\dot{\phi} = \partial_{t} \phi$. 
 
 \begin{equation*}
     \begin{gathered}
@@ -201,8 +200,8 @@ $a'_{p} \to \hat{a}^{\dagger}_{p}$ and check whether the choice is fine by the c
     \begin{gathered}
         \big[\phi(x), \Pi(x')] = \\
         \bigg[
-            \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3} \sqrt{2 \omega_{p}}} \ \big(\hat{a}_{p} e^{i p x} + \hat{a}^{\dagger}_{p} e^{- i p x}\big),
-            \int_{\mathbb{R}^{3}} \frac{dp'^{3}}{(2 \pi)^{3}} (-i) \sqrt{\frac{\omega_{p'}}{2}} \ \big(\hat{a}_{p'} e^{i p' x'} - \hat{a}^{\dagger}_{p'} e^{- i p' x'}\big)
+            \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3} \sqrt{2 E_{p}}} \ \big(\hat{a}_{p} e^{i p x} + \hat{a}^{\dagger}_{p} e^{- i p x}\big),
+            \int_{\mathbb{R}^{3}} \frac{dp'^{3}}{(2 \pi)^{3}} (-i) \sqrt{\frac{E_{p'}}{2}} \ \big(\hat{a}_{p'} e^{i p' x'} - \hat{a}^{\dagger}_{p'} e^{- i p' x'}\big)
         \bigg] = \\
     \end{gathered}
 \end{equation*}
@@ -212,12 +211,12 @@ use the commutation relation for $\hat{a}_{p}$ and $\hat{a}^{\dagger}_{p}$ to si
 
 \begin{equation*}
     \begin{gathered}
-        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} dp'^{3}}{(2 \pi)^{6}} \frac{(-i)}{2} \sqrt{\frac{\omega_{p'}}{\omega_{p}}}
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} dp'^{3}}{(2 \pi)^{6}} \frac{(-i)}{2} \sqrt{\frac{E_{p'}}{E_{p}}}
         \bigg[
             \hat{a}_{p} e^{i p x} + \hat{a}^{\dagger}_{-p} e^{i p x},
             \hat{a}_{p'} e^{i p' x'} - \hat{a}^{\dagger}_{-p'} e^{i p' x'}
         \bigg] = \\
-        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} dp'^{3}}{(2 \pi)^{6}} \frac{(-i)}{2} \sqrt{\frac{\omega_{p'}}{\omega_{p}}}
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} dp'^{3}}{(2 \pi)^{6}} \frac{(-i)}{2} \sqrt{\frac{E_{p'}}{E_{p}}}
         \bigg(
            - \big[ \hat{a}_{p'}, \hat{a}^{\dagger}_{-p} \big]
            - \big[ \hat{a}_{p}, \hat{a}^{\dagger}_{-p'} \big] 
@@ -229,10 +228,42 @@ Finally, let's replace the commutators with the delta functions $\big[\hat{a}_{p
 
 \begin{equation*}
     \begin{gathered}
-        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} dp'^{3}}{(2 \pi)^{3}} \frac{i}{2} \sqrt{\frac{\omega_{p'}}{\omega_{p}}}
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} dp'^{3}}{(2 \pi)^{3}} \frac{i}{2} \sqrt{\frac{E_{p'}}{E_{p}}}
         \bigg( \delta(p' + p) + \delta(p' + p) \bigg) e^{i p' x' + i p x} = \\
         \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3}} i e^{- i p(x' - x)} = i \delta(x - x') \\
     \end{gathered}
+\end{equation*}
+
+It is also worth discussing the factor $(2 E_{p})^{\frac{1}{2}}$ in the $\phi$. The idea is
+to use the dispersion relation $p = (p_{0}, \vec{p}) \implies p^{2} - m^2 = 0$ to solve the problem that $dp^{3}$ is
+not Lorentz invariant. We choose $dp^{4} \delta(p^{2} - m^2) \theta(p_{0})$ as the measure which takes into account 
+the \textit{mass shell condition} introduced by the dispersion relation. Using the identity
+
+\begin{equation*}
+    \delta(f(x)) = \sum_{\{x_{0} \\ | \\ f(x_{0}) = 0\}} \frac{1}{|f'(x_{0})|} \delta(x - x_{0})
+\end{equation*}
+
+for $E_{p} = \sqrt{\vec{p}^{2} + m^{2}}$ we can show $\delta(p^{2} - m^2) \theta(p_{0}) = \frac{1}{2 E_{p}} (\delta(p_{0} - E_{p}) + 
+\delta(p_{0} + E_{p})) \theta(p_{0}) = \frac{1}{2 E_{p}} \delta(p_{0} - E_{p}) \theta(p_{0})$. Using the new measure which
+the identity operator is expressed as 
+
+\begin{equation*}
+    \mathbb{I}_{p} = \int_{\mathbb{R}} \frac{dp^{3}}{(2 \pi)^{3} 2 E_{p}} \ket{p} \bra{p}
+\end{equation*}
+
+and if we try to calculate $\bra{p} \mathbb{I} \ket{q}$ we expect this to be a Dirac delta $\delta(p - q)$.
+
+\begin{equation*}
+    \bra{p} \mathbb{I}_{p} \ket{q} = \int_{\mathbb{R}} \frac{dp^{3}}{(2 \pi)^{3} 2 E_{p}} \bra{p} \ket{p} \bra{p}\ket{q} = \frac{1}{(2 \pi)^{3} 2 E_{p}} \delta(p - q)
+\end{equation*}
+
+So we will rather normalize the momentum state $\ket{\tilde{p}} = (2 \pi)^{\frac{3}{2}} (2 E_{p})^{\frac{1}{2}} \ket{p}$ and
+the annihilation and creation operators $\ket{\tilde{p}} = \tilde{a}^{\dagger} \ket{0} = (2 \pi)^{\frac{3}{2}} (2 E_{p})^{\frac{1}{2}} \ket{p}$.
+The field operator using the measure and new $\tilde{a}$ operators is as follows.
+
+\begin{equation*}
+    \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3} 2 E_{p}} \ \big(\tilde{a}_{p} e^{i p x} + \tilde{a}^{\dagger}_{p} e^{- i p x}\big) = 
+    \int_{\mathbb{R}^{3}} \frac{dp^{3} (2 \pi)^{\frac{3}{2}} (2 E_{p})^{\frac{1}{2}}}{(2 \pi)^{3} 2 E_{p}} \ \big(\tilde{a}_{p} e^{i p x} + \tilde{a}^{\dagger}_{p} e^{- i p x}\big) = 
 \end{equation*}
 
 \section{Causality problem}
@@ -270,21 +301,21 @@ So to check the causality we will check the commutator $[\phi(x), \phi(y)]$.
     \begin{gathered}
         \bigg[\phi(x), \phi(x')\bigg] = \\
         \bigg[
-            \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3}} \frac{1}{\sqrt{2 \omega_{p}}} \big(\hat{a}_{p} e^{ipx} + \hat{a}^{\dagger}_{p} e^{-ipx}\big),
-            \int_{\mathbb{R}^{3}} \frac{dp'^{3}}{(2 \pi)^{3}} \frac{1}{\sqrt{2 \omega_{p'}}} \big(\hat{a}_{p'} e^{ip'x'} + \hat{a}^{\dagger}_{p'} e^{-ip'x'}\big)
+            \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3}} \frac{1}{\sqrt{2 E_{p}}} \big(\hat{a}_{p} e^{ipx} + \hat{a}^{\dagger}_{p} e^{-ipx}\big),
+            \int_{\mathbb{R}^{3}} \frac{dp'^{3}}{(2 \pi)^{3}} \frac{1}{\sqrt{2 E_{p'}}} \big(\hat{a}_{p'} e^{ip'x'} + \hat{a}^{\dagger}_{p'} e^{-ip'x'}\big)
         \bigg] = \\
-        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} \ dp'^{2}}{(2 \pi)^{6}} \frac{1}{2 \sqrt{\omega_{p} \omega_{p'}}}
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} \ dp'^{2}}{(2 \pi)^{6}} \frac{1}{2 \sqrt{E_{p} E_{p'}}}
         \bigg[
             \hat{a}_{p} e^{ipx} + \hat{a}^{\dagger}_{p} e^{-ipx},
             \hat{a}_{p'} e^{ip'x'} + \hat{a}^{\dagger}_{p'} e^{-ip'x'}
         \bigg] = \\
-        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} \ dp'^{2}}{(2 \pi)^{6}} \frac{1}{2 \sqrt{\omega_{p} \omega_{p'}}}
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} \ dp'^{2}}{(2 \pi)^{6}} \frac{1}{2 \sqrt{E_{p} E_{p'}}}
         \bigg(
             \big[\hat{a}_{p} e^{ipx}, \hat{a}^{\dagger}_{p'} e^{-ip'x'}\big] + \big[\hat{a}^{\dagger}_{p} e^{-ipx}, \hat{a}_{p'} e^{ip'x'}\big]
         \bigg) = \\
-        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} \ dp'^{2}}{(2 \pi)^{3}} \frac{1}{2 \sqrt{\omega_{p} \omega_{p'}}}
+        \iint_{\mathbb{R}^{3} \cross \mathbb{R}^{3}} \frac{dp^{3} \ dp'^{2}}{(2 \pi)^{3}} \frac{1}{2 \sqrt{E_{p} E_{p'}}}
         \big(\delta(p - p') e^{ipx - ip'x'} - \delta(p - p') e^{-(ipx - ip'x')} \big) = \\
-        \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3}} \frac{1}{2 \omega_{p'}} \big(e^{ip(x - x')} - e^{-ip(x - x')} \big)
+        \int_{\mathbb{R}^{3}} \frac{dp^{3}}{(2 \pi)^{3}} \frac{1}{2 E_{p'}} \big(e^{ip(x - x')} - e^{-ip(x - x')} \big)
     \end{gathered}
 \end{equation*}
 

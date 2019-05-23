@@ -1,9 +1,8 @@
 \chapter{Failures of the Relativistic Quantum Mechanics}
 
-In this chapter we will discuss the problems of relativistic quantum mechanics. We will start
+In this chapter we will discuss problems of relativistic quantum mechanics. We will start
 with the problem of probability density. We will show that the probability density is positive-definite for Dirac Equation
-but it is not in the case of the Klein-Gordon equation. Then we will investigate the problem of causality
-in the physics.
+but it is not in the case of the Klein-Gordon equation. Then we will investigate the problem of causality.
 
 \section{Probability density}
 
@@ -223,7 +222,7 @@ Which is
 
 and thus always a positive quantity! Unfortunately this doesn't mean the relativistic quantum mechanics is saved.
 Firstly, Dirac equation doesn't replace the Klein-Gordon equation since they each describe different particles. Klein-Gordon
-equation describes \textit{zero-spin} particles (thus it can really describe the electron despite the fact it was
+equation describes \textit{zero-spin} particles (thus it can't really describe the electron despite the fact it was
 historically developed for that purpose!) and Dirac equation describes $\frac{1}{2}-spin$ particles. Moreover, for 
 both Klein-Gordon and Dirac equation we have to deal with negative energy solutions. In the case of Dirac equation
 there is the famous reasoning from which we conclude the existence of anti-electrons, i.e. positrons. The solution
@@ -285,7 +284,7 @@ the $p$ in the complex plane by $\frac{\pi}{4}$ and get a known form of a Gaussi
 \begin{equation*}
     \begin{gathered}
         = \begin{vmatrix}
-            p = e^{\frac{- i \pi}{4}} r
+            p = e^{\frac{- i \pi}{4}} r \\
             dp = e^{\frac{- i \pi}{4}} dr
         \end{vmatrix}
         = e^{\frac{i \pi}{4}} e^{\frac{im}{2\hbar t'} (x_{1} - x_{0})^{2}} \int_{\mathbb{R}} \frac{dp}{2 \pi \hbar} \ e^{- \frac{t'}{2 \hbar m} r^{2}} \\
@@ -306,8 +305,8 @@ transition $(x_{0}, 0) \to (x_{1}, t')$ will be
 
 thus for an arbitrary choice of $(x_{1} - x_{0})$ there is no fixed time $t'$. This results in a possibility for the particle
 being outside of the light cone with a non-zero probability. This result clearly violates the causality. But the conclusion is
-not unexpected in the case of the non-relativistic free particle. We used the definition within the relativity theory to 
-formulate the condition for the causality but the Hamiltonian $\hat{H}$ doesn't event include the $c$ constant. We could try
+not unexpected in the case of the non-relativistic free particle. We used the definition within the theory of relativity to 
+formulate the condition for the causality but the Hamiltonian $\hat{H}$ contains only the lowest order approximation. We could try
 to get a proper result by assuming the relativistic energy \ref{eq:relativistic_energy}. As we have shown, a quantization of such an
 expression lead us to the Klein-Gordon equation which has the Lorentz symmetry a thus is a good candidate for the right transition
 amplitude.
@@ -413,7 +412,7 @@ particle. The problem of the numerical approach is we have to deal with the non-
 sure the integral is non-zero in the region outside of the light cone we will investigate the integral analytically using the 
 \textit{steepest descent method}. Let $S(p)$ be the exponent part of the integrated function and $\Delta x = x_{1} - x_{0}$. During
 the computation we will assume $(\Delta x)^{2} > (ct')^{2}$ to take into account that we investigate the region where the amplitude
-should be zero. Also for the calculation we will wick rotate the time using $t' = t_{M} = - i t_{E}$.
+should be zero. Also for the calculation we will Wick rotate the time using $t' = t_{M} = - i t_{E}$.
 
 \begin{equation*}
     S(p) = - {\hbar} c \sqrt{p^{2} + (mc)^{2}} t_{E} + \frac{i}{\hbar}p \Delta x
@@ -437,7 +436,7 @@ We have to make sure whether the values $p_{+}$, $p_{-}$ are saddle points. Let'
     \end{gathered}
 \end{equation*}
 
-From this result we can conclude the only point satifying the equation $\partialder{S(p)}{p} = 0$ is $p_{+}$. Now we find the value of the 
+From this result we can conclude the only point satisfying the equation $\partialder{S(p)}{p} = 0$ is $p_{+}$. Now we find the value of the 
 Hessian $\partialdernd{S(p)}{p}$ in the saddle point $p_{+}$.
 
 \begin{equation*}
@@ -446,14 +445,14 @@ Hessian $\partialdernd{S(p)}{p}$ in the saddle point $p_{+}$.
     \end{gathered}
 \end{equation*}
 
-After ratating the time back $t_{E} \to t_{M} = t'$ we can conclude the amplitude $A_{2}$ is
+After rotating the time back $t_{E} \to t_{M} = t'$ we can conclude the amplitude $A_{2}$ is
 
 \begin{equation}
     \label{eq:a_2_amplitude}
-    A_{2} \approx e^{S(p_{+})} \sqrt{\frac{2 \pi}{- H}} = e^{- \frac{mc}{\hbar} \sqrt{(\Delta x)^{2} - (ct')^{2}}} \sqrt{\frac{2 \pi c^{3} m t^{2}}{\big((\Delta x)^{2} - (ct')^{2} \big)^{\frac{3}{2}}}}
+    A_{2} \approx \bigg| e^{S(p_{+})} \sqrt{\frac{2 \pi}{- H}} \bigg|^{2} = \frac{2 \pi c^{3} m t^{2}}{\big((\Delta x)^{2} - (ct')^{2} \big)^{\frac{3}{2}}} \, e^{- \frac{2mc}{\hbar} \sqrt{(\Delta x)^{2} - (ct')^{2}}} 
 \end{equation}
 
 The expression \ref{eq:a_2_amplitude} is non-zero for an arbitrary choice of $\Delta x$ and $t'$ thus it is
-non-zero also in the region outside of the light cone. Thus we see we deal with the same problem again.
+non-zero also in the region outside of the light cone. We see we deal with the same problem again.
 The difference is that now we deal with an unexplainable problem. We used the relativistic energy and still the theory
 allowed the particle to travel faster then the speed of light with non-zero probability! 
