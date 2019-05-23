@@ -29,7 +29,7 @@
 \usepackage[utf8]{inputenc} 
 % \usepackage[cp1250]{inputenc} %% NASTAVENI PRO WINDOWS
 % \usepackage[T1]{fontenc} %% puvodni evropske fonty->spatne umistene hacky nad c, d s hackem ma za sebou mezeru
-\usepackage[IL2]{fontenc} %fonty vyladene pro cestinu/slovenstinu
+% \usepackage[IL2]{fontenc} %fonty vyladene pro cestinu/slovenstinu
 
 %%%%%%%%%%%%
 %% Nastavte si jazyk dokumentu 
@@ -118,32 +118,36 @@
 
 \StudijniObor{Fyzika}{Physics}
 
-\PocetStran{??\,$+$\,??}
+\PocetStran{x\,$+$\,29}
 
-\KlicovaSlova{kvantová mechanika, kvantová teorie pole, relativistická kvantová mechanika}{quantum mechanics; quantum field theory, relativistic quantum mechanics}
+\KlicovaSlova{kvantová mechanika; kvantová teorie pole; relativistická kvantová mechanika; Klein-Gordonova rovnice; Diracova rovnice; 
+    kauzalita}{quantum mechanics; quantum field theory: relativistic quantum mechanics: Klein-Gordon equation; Dirac equation}
 
 \Abstrakty%
 {V této bakalářské práci se věnujeme přechodu kvantové mechaniky ke kvantové teorii pole. Nejdříve se zabýváme
 Diracovou kanonickou kvantizací a konstrukcí relativistických rovnic, Klein-Gordonovy rovnice a Diracovy rovnice.
-V hlavní části spočítáme vlastnosti hustoty pravděpodobnosti vyplívající ze získaných rovnic a zabýváme se pojmem kauzality
+V hlavní části spočítáme vlastnosti hustoty pravděpodobnosti vyplíva-\\jící ze získaných rovnic a zabýváme se pojmem kauzality
 v kontextu relativistické fyziky. Pomocí aproximační analytické metody a numerické metody ukážeme, že nastavené
 podmínky pro kauzalitu neplatí. V poslední části načrtneme kvantizaci Klein-Gordonova pole a nakonec ukážeme,
 že pro novou relativistickou teorii už problémům s kauzalitou nečelíme.}%
-{In this thesis we study the transition from quantum mechanics to quantum field theory. We start by dealing
+{In this thesis, we study the transition from quantum mechanics to quantum field theory. We start by dealing
 with the Dirac canonical quantization and construction of the relativistic equations, Klein-Gordon equation and 
-Dirac equation. In the main chapter we investigate the properties of the probability density using the found
+Dirac equation. In the main chapter, we investigate the properties of the probability density using the found
 equations and we deal with the causality within the context of a relativistic physics. Using both a numerical method 
-and an analytical aproximation we show the causality breaks within our conditions. In the last part we sketch
-the quatization of the Klein-Gordon field and we check causality works using the new approach.}
+and an analytical approximation we show the causality breaks within our conditions. In the last part, we sketch
+the quantization of the Klein-Gordon field and we check causality works using the new approach.}
 
 \TextPodekovani%
-{Na tomto místě bych chtěl(-a) poděkovat ...}
+{On this place I would like to thank to doc. Klaus Bering Larsen, Ph.D for his guidance and priceless advices
+during supervising this thesis. Also, I would like to thank my friends and family for pushing and supporting me
+in completing the thesis. Special thanks goes to Martin Vokal and Petra Zelena being the closest people around
+me for their support.}
 
 \TextProhlaseni%
-{Prohlašuji, že jsem svoji bakalářskou/diplomovou/rigorózní práci vypracoval(-a) samostatně s~využitím informačních
-zdrojů, které jsou v práci citovány.}
+{I hereby declare that I have composed the presented thesis independently on my
+own and without any other resources than the ones indicated. All thoughts taken directly or indirectly from external sources are properly denoted as such.}
 
-\DatumProhlaseni{23. května 2019}
+\DatumProhlaseni{May 23, 2019}
 
 %%%%%%%%%%%%
 %% Konkrétní příklad
@@ -279,7 +283,7 @@ zdrojů, které jsou v práci citovány.}
 %%%%%% PAK ''ZAPROCENTUJTE'' RADEK S \SemVlozitZadani A ODPROCENTUJTE RADEK S \VlozZadani %%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\SemVlozitZadani
+\includepdf[pages=-,pagecommand={},width=1.2\textwidth]{is_tisk.pdf}
 
 % \VlozZadani{NazevSouboruSeZadanim}
 % \VlozZadani{zadani.pdf}
